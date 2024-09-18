@@ -1,0 +1,622 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+.md-toc{
+ 	position: fixed; 
+ 	left: 50px;
+    top: 50px;
+}
+
+</style><title>S0101 Acer NB BIOS Specification</title>
+</head>
+<body class='typora-export os-windows typora-export-show-outline typora-export-no-collapse-outline'><div class='typora-export-content'>
+<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#revision-history">Revision History</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#1-industry-specifications">1.<span>	</span>Industry Specifications</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#11-brand-system-identification">1.1<span>	</span>Brand System Identification</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#12-firmware-update">1.2<span>	</span>Firmware Update</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#121-----firmware-utility">1.2.1     Firmware Utility</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#122-----firmware-flash">1.2.2     Firmware Flash</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#123-----crisis">1.2.3     Crisis</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#13------firmware-capsule-update">1.3      Firmware capsule update</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#131-----ui-components-of-capsule-update">1.3.1     UI components of capsule update</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#132-----capsule-update-require-smbios-support">1.3.2     Capsule update require SMBIOS support</a></div><ul class="outline-children"></ul></li></ul></li></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2---os-support">2.   OS Support</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#21-windows-secure-boot">2.1 Windows Secure Boot</a></div><ul class="outline-children"></ul></li></div></div><div id='write'  class=''><p><strong><span>BIOS Requirements</span></strong></p><p><strong><span>For</span></strong></p><p><strong><span>Acer Notebook/Tablet</span></strong><span> </span></p><p><img src="D:\Study\markdown\S001\pic\image-20240916115840934.png" referrerpolicy="no-referrer" alt="image-20240916115840934"></p><p><strong><span>Acer Incorporated</span></strong></p><p><strong><span>9F, 88, Sec. 1, Xintai 5th Rd</span></strong></p><p><strong><span>Xizhi, New Taipei City 221</span></strong></p><p><strong><span>Taiwan, R.O.C.</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>  Document  Type:  </span></th><th><span>  Specification  Requirements  </span></th></tr></thead><tbody><tr><td><span>  Department:  </span></td><td><span>  Acer IT  Products Business  </span></td></tr><tr><td><span>  Author:  </span></td><td><span>  KYD300  </span></td></tr><tr><td><span>  Document  Version:  </span></td><td><span>  V 1.31</span></td></tr><tr><td><span>  Release  Date:  </span></td><td><span> 2024/6/26</span></td></tr></tbody></table></figure><p><span>This document contains proprietary technical information, which is the property of the Acer Incorporated and shall not be disclosed to others in whole or in part, reproduced, copied, or used as the basis for design, manufacturing, or sale of apparatus without written permission of Acer Incorporated.</span></p><p>&nbsp;</p><p>&nbsp;</p><h1 id='revision-history'><span>Revision History</span></h1><figure class='table-figure'><table><thead><tr><th><span>   Rev. #   </span></th><th><span>   Date   </span></th><th><span>   Explanation of Change   </span></th></tr></thead><tbody><tr><td><span>   0.9  </span></td><td><span>  2011/12/27  </span></td><td><span>  1.     1st release   </span></td></tr><tr><td><span>  0.95  </span></td><td><span>  2012/01/09  </span></td><td><span>1.</span><span>	</span><span>Update v6.2.3 lid open behavior</span><br/><span>2.</span><span>	</span><span>Remove iRST BIOS setup.</span><br/><span>3.</span><span>	</span><span>Add behavior for during POST if the system has external display connected. </span><br/><span>4.</span><span>	</span><span>Add Wake on Lan in BIOS setup menu</span><br/><span>5.</span><span>	</span><span>Update Appendix G</span></td></tr><tr><td><span>  0.99  </span></td><td><span>  2012/02/21  </span></td><td><span>1.</span><span>	</span><span>Updated USB Charge Behaviors</span><br/><span>2.</span><span>	</span><span>Added iRST Wake Up Trigger Events and delete appendix iRST chart</span><br/><span>3.</span><span>	</span><span>Moved ASF Setting description under security section to Main section and added ASF Configuration back</span><br/><span>4.</span><span>	</span><span>Added addition description to Appendix G behaviors</span><br/><span>5.</span><span>	</span><span>Added Wake on WLAN </span><br/><span>6.</span><span>	</span><span>Updated Wake on LAN default value</span></td></tr><tr><td><span>  1.00  </span></td><td><span>  2012/03/01  </span></td><td><span>1.</span><span>	</span><span>Updated UEFI BIOS for Windows 8 system</span><br/><span>2.</span><span>	</span><span>Updated 2012 chipset VRAM size</span><br/><span>3.</span><span>	</span><span>Correct note # in Main section in setup menu </span><br/><span>4.</span><span>	</span><span>Removed version# in SMBIOS section tile</span><br/><span>Removed “Writing or reading data from EEPROM will through EC  KB926 SMBUS protocols.” to not use particular EEPROM in EEPROM section</span><br/><span>5.</span><span>	</span><span>Correct wording in Main section’s Total Memory to Video Memory</span><br/><span>6.</span><span>	</span><span>Updated Password Flow</span><br/><span>7.</span><span>	</span><span>14.1.3 For any item needs password setup before it is available, the item should not be hidden. It should display as a gray out</span><br/><span>8.</span><span>	</span><span>Updated enter setup menu text ‘s letter case and add”.”</span><br/><span>9.</span><span>	</span><span>Update iRST behaviors in S4 and iRST state in appendix</span></td></tr><tr><td><span>  1.01  </span></td><td><span>  2012/04/11  </span></td><td><span>1.</span><span>	</span><span>Add Load CSM in setup menu</span><br/><span>2.</span><span>	</span><span>Add back no rollback</span><br/><span>3.</span><span>	</span><span>Load CSM will auto turn off security boot</span><br/><span>4.</span><span>	</span><span>Need to add starting z and y offsets</span><br/><span>5.</span><span>	</span><span>Change NUM Lock behavior with Full Size keyboard</span><br/><span>6.</span><span>	</span><span>Added Keyboard Backlit section and behaviors</span><br/><span>7.</span><span>	</span><span>Modify Wake on WLAN to commercial vPro only</span><br/><span>8.</span><span>	</span><span>Add rule : When legacy boot mode, CSM load will always be enabled</span></td></tr><tr><td><span>  1.02  </span></td><td><span>  2012/5/25  </span></td><td><span>1.</span><span>	</span><span>Modified wording in Boot Mode in Boot setup screens section: When Legacy is “enabled”, load CSM is automatic Enable. Previous statement  was “disabled”</span><br/><span>2.</span><span>	</span><span>Added SMBIOS BIOS’s “release date” format (mm/dd/yyyy)</span><br/><span>3.</span><span>	</span><span>Modified Acer HDD Password flow. Removed enter service key to enter service key page flow , keep current design</span><br/><span>4.</span><span>	</span><span>Added only HDD0 is displayed when configured as RAID in BIOS setup screens section’s boot menu and security menu</span><br/><span>5.</span><span>	</span><span>Removed “Zero Power” will wake up for ultrabook when lid open in Lid switch section</span><br/><span>6.</span><span>	</span><span>Added &quot;Erase all Secure Boot Setting&quot;, &quot;Restore Secure Boot to Factory Default&quot;, and &quot;Add an UEFI file as trust for executing&quot; in BIOS setup screens section’s security menu</span><br/><span>7.</span><span>	</span><span>Modify wording of “Legacy” mode to “Legacy BIOS” mode in the BIOS setup screens section’s boot menu</span><br/><span>8.</span><span>	</span><span>Added Windows boot manager is displayed on top of boot device when OS is installed in BIOS setup screen’s boot device menu </span><br/><span>9.</span><span>	</span><span>Added requirement to external display must base on EDID information to display correct ratio logo 16:9 or 4:3 in Post Logo Section</span><br/><span>10.</span><span>	</span><span>Added clear statement &quot;Press </span><F2><span> to enter ...&quot; message on the bottom of the screen should only display in legacy mode in POST Summary session</span><br/><span>11.</span><span>	</span><span>Added SMIBIOS System SKU Number (Type 1)  format definition : </span><model name><em><SSID></em><BIOS major version><span>.</span><BIOS minor version><br/><span>12.</span><span>	</span><span>Changed document title to UEFI BIOS Requirements instead of just BIOS Requirements</span><br/><span>13.</span><span>	</span><span>Modified Security Boot Mode option definition as a display status instead of an action to trigger other action in BIOS Setup screen‘s secure menu.</span><br/><span>14.</span><span>	</span><span>Removed Load CSM option in BIOS setup screen’s boot menu.</span><br/><span>15.</span><span>	</span><span>Removed BGRT OEM Brand logo section’s example logo</span><br/><span>16.</span><span>	</span><span>Added all brand Windows8 post and BGRT OEM brand logo</span><br/><span>17.</span><span>	</span><span>Add confirmation pop up message when users switch boot mode between legacy and UEFI.</span><br/><span>18.</span><span>	</span><span>Added Admin password check for security boot setting modify in BIOS setup screen’s secure menu</span><br/><span>19.</span><span>	</span><span>Added admin password check for security boot enabled/disabled in BIOS setup screen’s boot menu</span><br/><span>20.</span><span>	</span><span>SMBIOS System SKU Number’s version between major and mirror # should be . . not _ </span><br/><span>21.</span><span>	</span><span>Added RAID Mode in SATA mode option in BIOS setup screen’s Main menu</span><br/><span>22.</span><span>	</span><span>Removed RTC from IRST Wake up event in battery mode</span><br/><span>23.</span><span>	</span><span>Change wording from shut to lid closed</span><br/><span>24.</span><span>	</span><span>Removed DVI, HD15, Component, and S-video and added VGA into external display order when lid is closed.</span><br/><span>25.</span><span>	</span><span>When boot mode change, available boot device is gray out in the setup screen’s Boot Menu </span><br/><span>26.</span><span>	</span><span>Added Internal keyboard HW ID defined in internal device information requirements section</span><br/><span>27.</span><span>	</span><span>Under network boot section, LAN boot is disabled in UEF boot mode.</span></td></tr><tr><td><span>  1.03  </span></td><td><span>  2012/6/15  </span></td><td><span>1.</span><span>	</span><span>Added Acer security boot public key sets in Secure Features – Security Boot section</span><br/><span>2.</span><span>	</span><span>Touch Pad should maintain previous enable or disable status after S3/S4/S5 in Touchpad On/Off section</span><br/><span>3.</span><span>	</span><span>Modified BIOS setup screen’s Network boot default is “Disabled” </span><br/><span>4.</span><span>	</span><span>Added Windows Boot Manager, Windows USB To Go, Network device IPv4 and IPv6 into Boot device ‘s screen example</span><br/><span>5.</span><span>	</span><span>Added boot description to” Select an UEFI file as trusted for executing”, the added boot description will become an entry into boot priority </span><br/><span>6.</span><span>	</span><span>Non Physical boot device can be deleted in Boot priority Order in BIOS setup menu</span><br/><span>7.</span><span>	</span><span>Adding security boot requirements to ensure key import’s is depending on standard interface during the code build up rather than tools</span><br/><span>8.</span><span>	</span><span>Removed “Authenticated variables will be kept after flashed.” In Crisis Recovery</span><br/><span>9.</span><span>	</span><span>Removed brand name of Upack/Authentec/LTT/Validity in “Finger print: support 10 fingers”</span><br/><span>10.</span><span>	</span><span>Removed “TechG requirement in TPM section</span><br/><span>11.</span><span>	</span><span>Removed note1 in System wake up source under ACPI Mode section</span><br/><span>12.</span><span>	</span><span>Removed “Tech G” requirement in Boot device sequence section</span><br/><span>13.</span><span>	</span><span>Changed Quite boot to legacy BIOS boot only in POST logo section (Highlight color changed)</span><br/><span>14.</span><span>	</span><span>Removed Windows USB to Go in Boot device priority order</span><br/><span>15.</span><span>	</span><span>Changed Information menu’s System BIOS Version example version “v”xx.xx from lower case to upper case Vxx.xx</span><br/><span>16.</span><span>	</span><span>Bluetooth is on by default </span><br/><span>17.</span><span>	</span><span>Set all occurrence of product name to standard format in Product Name, System Management BIOS, and Information Menu sections</span></td></tr><tr><td><span>  1.04  </span></td><td><span>  2012/7/6  </span></td><td><span>1.</span><span>	</span><span>Added xHCI support option in BIOS setup screen’s Information Menu (For systems only have USB 3.0 ports)</span><br/><span>2.</span><span>	</span><span>Added Appendix H for Graphic BIOS Setup Menu visual design requirements (Only apply to systems whose have been selected to adopt)</span><br/><span>3.</span><span>	</span><span>Updated Acer Security key package to include Acer DB key in security boot section</span></td></tr><tr><td><span>  1.05  </span></td><td><span>  2012/7/20  </span></td><td><span>1.</span><span>	</span><span>Updated Boot Mode type behavior: After BIOS flash, load setup default</span><br/><span>2.</span><span>	</span><span>Added OA and OS matrix table in “SLP 1.0and OA2.0… “section</span><br/><span>3.</span><span>	</span><span>Update Logo image file: Win8_POST_BGRT_Logo_0718_2012.rar to include brand logo for UEFI BIOS’s legacy boot mode. So when post resolution is set to 1024x 768 in legacy boot, images will display correctly</span><br/><span>4.</span><span>	</span><span>Added flash rules for separate BIOS in “Flash Utility” section.</span><br/><span>5.</span><span>	</span><span>Added comment to  “Wireless LAN &amp; Bluetooth after loading default setting” section : BT in OS should turn off SW radio signal, but BT HW signal should default “On”</span><br/><span>6.</span><span>	</span><span>In “Secure sequence” section, updated In the case of Password of Supervisor for boot up is equal to Hard disk Password, it should Bypass Supervisor ask</span><br/><span>7.</span><span>	</span><span>Change Note 6 location to express this note is under S3 and Lid Open, not Lid open as general in “System Wake Up source under ACPI Mode” section.</span><br/><span>8.</span><span>	</span><span>Updated Lid open resume behaviors for Ultra book (SSD SKUL only) projects in “System Wake Up source under ACPI Mode” section.</span><br/><span>9.</span><span>	</span><span>Added Commercial projects’ legacy BIOS boot mode definition in “Boot mode” section</span></td></tr><tr><td><span>  1.06  </span></td><td><span>  2012/7/27  </span></td><td><span>1.</span><span>	</span><span>Changed VRAM Size defined to follow vendor platform recommend size in “Main Menu” section</span><br/><span>2.</span><span>	</span><span>Added NUM Lock behaviors will follow OS designed behaviors after enter OS in “NUM Lock“ chapter</span><br/><span>3.</span><span>	</span><span>Added display message when upgrade/downgrade BIOS to disallow scenario in Flash Utility Section</span><br/><span>4.</span><span>	</span><span>Modified password check’s sequence as HDD first and Admin later In “Secure sequence” section</span><br/><span>5.</span><span>	</span><span>Removed Power on display in user password chapter</span></td></tr><tr><td><span>  1.07  </span></td><td><span>  2012/8/24  </span></td><td><span>1.</span><span>	</span><span>Removed SMBIOS type 05, 06, 09 (Memory Controller Information, Memory Module Information, System Slots)</span><br/><span>2.</span><span>	</span><span>Added SMBIOS check list to appendix I</span></td></tr><tr><td><span>  1.08  </span></td><td><span>  2012/10/22  </span></td><td><span>1.</span><span>	</span><span>Modify customized security boot restore spec. in “Secure Features – Secure Boot” section.(p32)</span><br/><span>2.</span><span>	</span><span>Add Secure Boot Check Status restore behavior in the “Secure Boot” section. (p60)</span><br/><span>3.</span><span>	</span><span>Highlight Graphic Mode only support on the commercial platform with XP support.(p49)</span><br/><span>4.</span><span>	</span><span>Modify definition of product name to standard format in Product Name, System Management BIOS and Information Menu section. (p26, p40 and p46)</span></td></tr><tr><td><span>  1.09  </span></td><td><span>  2012/11/06  </span></td><td><span>1.</span><span>	</span><span>Add Windows 8 Radio Management Specification in “Button – Wireless LAN &amp; Bluetooth Radio Management” sections”. (p18)</span><br/><span>2.</span><span>	</span><span>Revise customized security boot restore spec. in “Secure Features – Secure Boot” section.(p32)</span><br/><span>3.</span><span>	</span><span>Revise Secure Boot Check Status restore behavior in the “Secure Boot” section. (p60)</span><br/><span>4.</span><span>	</span><span>Add Boot Mode change and Secure Boot Status definition. In the “Boot Mode” section. (p60)</span></td></tr><tr><td><span>  1.10  </span></td><td><span>  2012/12/28  </span></td><td><span>1.</span><span>	</span><span>Add spec. for Linpus with Secure Boot feature in UEFI Compatibility OS support list. (p12, p34)</span><br/><span>2.</span><span>	</span><span>Add spec for POST and POST Logo resolution under [Legacy] Boot Mode. (p21)</span><br/><span>3.</span><span>	</span><span>Update Asset Tag default value spec. (p27)</span><br/><span>4.</span><span>	</span><span>Add clear CMOS action spec. (p29)</span><br/><span>5.</span><span>	</span><span>Update hard disk password set action. (p30)</span><br/><span>6.</span><span>	</span><span>Update TPM spec. and add TCM spec. (p32)</span><br/><span>7.</span><span>	</span><span>Update Secure Boot variable protection spec. for BIOS flash (p33, p38)</span><br/><span>8.</span><span>	</span><span>Update S3 wake up from USB device spec. under lid close. (p36)</span><br/><span>9.</span><span>	</span><span>Update Crisis Recovery spec with secure flash feature in new project. (p39)</span><br/><span>10.</span><span>	</span><span>Add Microsoft Windows To Go spec. (p25, p42, p58, p60)</span><br/><span>11.</span><span>	</span><span>Add default SCU resolution spec. (p44)</span><br/><span>12.</span><span>	</span><span>Update xHCI support spec. (p50)</span><br/><span>13.</span><span>	</span><span>Update item in Security Menu presentation spec. (p52)</span><br/><span>14.</span><span>	</span><span>Add TCM support. in Security Menu and update TPM/TCM presentation spec. (p55)</span><br/><span>15.</span><span>	</span><span>Update Secure Boot feature spec. (p56)</span><br/><span>16.</span><span>	</span><span>Update Exit Menu spec. (p60)</span><br/><span>17.</span><span>	</span><span>Update ACPI S4 requirement for invoking SCU for Win8 (p64)</span><br/><span>18.</span><span>	</span><span>Update Supervisor Password spec for Supervisor Password reset purpose.(p29)</span><br/><span>19.</span><span>	</span><span>Update Add notes for Password change/remove spec.(p32)</span></td></tr><tr><td><span>  1.11  </span></td><td><span>  2013/10/31  </span></td><td><span>The contents of the spec have been reorganized. It only lists the change highlights, but doesn’t include all changes. Please review the entire spec.</span><br/><span>1.</span><span>	</span><span>Add Boot failure feature for 2014 projects. For Critical low battery no boot feature, it will be replaced by the boot failure definition.</span><br/><span>2.</span><span>	</span><span>Remove USB charger port couldn’t support wake description</span><br/><span>3.</span><span>	</span><span>When USB Boot is disabled, under Boot priority order, USB boot device type is displayed but no device detected. No USB bootable device shows on F12 Boot Manager.</span><br/><span>4.</span><span>	</span><span>Add Win8.1 OS support</span><br/><span>5.</span><span>	</span><span>Remove Intel AT support </span><br/><span>6.</span><span>	</span><span>Add Precision Touchpad support</span><br/><span>7.</span><span>	</span><span>Add flash tool must check battery remaining capacity more than 15%</span><br/><span>8.</span><span>	</span><span>Add VRAM size definition</span><br/><span>9.</span><span>	</span><span>SCU doesn’t support Touchpad</span><br/><span>10.</span><span>	</span><span>BIOS disable PCI-E L0S support by default</span><br/><span>11.</span><span>	</span><span>Change SMBIOS product name maximum length to 25 bytes</span><br/><span>12.</span><span>	</span><span>Add connected standby BIOS spec</span><br/><span>13.</span><span>	</span><span>Update secure boot Acer key package</span><br/><span>14.</span><span>	</span><span>Remove eMachine and Founder brand</span><br/><span>15.</span><span>	</span><span>Add Critical low battery wake up event trigger on 6% remaining capacity</span><br/><span>16.</span><span>	</span><span>Add Alt+ F10 support</span><br/><span>17.</span><span>	</span><span>Change SLIC Table support matrix due to MS spec change</span><br/><span>18.</span><span>	</span><span>Update BIOS Setup Menu for commercial projects</span><br/><span>19.</span><span>	</span><span>Add new pop up wording when end user switch boot mode from UEFI to Legacy</span><br/><span>20.</span><span>	</span><span>Add description to the F2/F12 prompt message no longer display and POST logo using BGRT no matter UEFI or Legacy under win7/win8.</span><br/><span>21.</span><span>	</span><span>Add RF button definition</span><br/><span>22.</span><span>	</span><span>Update password control flow</span><br/><span>23.</span><span>	</span><span>Add Windows To Go section</span><br/><span>24.</span><span>	</span><span>Add description about the boot mode default setting. BIOS need to check OS type for the default setting.</span><br/><span>25.</span><span>	</span><span>For certain regions restricted to ship products with TPM, such as China, BIOS must disable TPM by default.</span></td></tr><tr><td><span>  1.12  </span></td><td><span>     </span></td><td><span>1.</span><span>	</span><span>Change Product name length to 25 bytes (P.21, 23)</span><br/><span>2.</span><span>	</span><span>Remove table from 4.1.5 Graphic to avoid confusion (P.54)</span><br/><span>3.</span><span>	</span><span>Modify the embedded display and external display description (P.54)</span><br/><span>4.</span><span>	</span><span>Add critical low battery as wake up event for S0 blank (P.61)</span><br/><span>5.</span><span>	</span><span>Update Key Code excel file to V1.6 (P.5)</span><br/><span>6.</span><span>	</span><span>Add sending “Standby Immediately” command to HDD and SSD before actually shutdown system caused by 4 second Power Button override event. (P.46)</span><br/><span>7.</span><span>	</span><span>Update password flow chart (P.37)</span><br/><span>8.</span><span>	</span><span>Update SMBIOS check item list to V1.02 (P.41)</span><br/><span>9.</span><span>	</span><span>Add Acer System Diagnose and Acer Disk Sanitizer sections (P.49)</span><br/><span>10.</span><span>	</span><span>Add note to describe the occasion to update boot block. (P.17)</span><br/><span>11.</span><span>	</span><span>Update boot failure icon (P.46)</span><br/><span>12.</span><span>	</span><span>Update VRAM size table to add definition of Beema and Kaveri (P.54)</span></td></tr><tr><td><span>  1.13  </span></td><td><span>  2014/10/1  </span></td><td><span>1.</span><span>	</span><span>Create Chapter 5 for commercial BIOS requirements</span><br/><span>2.</span><span>	</span><span>Create Chapter 6 for Tablet BIOS Requirements</span><br/><span>3.</span><span>	</span><span>Change SMBIOS spec to V2.8 </span><br/><span>4.</span><span>	</span><span>Divide Commercial BIOS setup options into “Advanced” page</span><br/><span>5.</span><span>	</span><span>Move section 3.2.4 Absolute Computrace to chapter 5</span><br/><span>6.</span><span>	</span><span>Move section 3.12 Acer System Tool to chapter 5</span><br/><span>7.</span><span>	</span><span>Add Fingerprint PBA support into chapter 5</span><br/><span>8.</span><span>	</span><span>Change BIOS spec title to replace netbook with tablet</span><br/><span>9.</span><span>	</span><span>Add GPT partition save/restore feature description and BIOS setup options</span><br/><span>10.</span><span>	</span><span>Correct OS support typo for win7 SP2</span><br/><span>11.</span><span>	</span><span>Add vPro support description</span><br/><span>12.</span><span>	</span><span>Refine BIOS setup options sequence: BIOS version/VGA BIOS version/GOP version/Total Memory/D2D Recovery</span><br/><span>13.</span><span>	</span><span>Remove options: Video Memory/Graphic Mode/Quiet Boot/</span><br/><span>14.</span><span>	</span><span>Add option: Lid Open Resume/Clear TPM(TCM)</span><br/><span>15.</span><span>	</span><span>Remove section Ch3.1.2 Graphic Model BIOS Setup Menu to Ch6 Tablet Requirement</span><br/><span>16.</span><span>	</span><span>Add Chassis Type (SMBIOS Type 3) data in SMBIOS Definition</span><br/><span>17.</span><span>	</span><span>Correct SMBIOS Type1 Manufacture Name offset from 1Bh to 04h</span><br/><span>18.</span><span>	</span><span>Redefine RF/Communication key behavior</span><br/><span>19.</span><span>	</span><span>Add &quot;Device must not boot up by buttons, keyboard, touchpad when lid is closed&quot;</span><br/><span>20.</span><span>	</span><span>Add &quot;Lid open wakes system from S3 state if Lid Open Resume is Enabled&quot;</span><br/><span>21.</span><span>	</span><span>Modify default value of &quot;Battery Threshold&quot; to 30%</span><br/><span>22.</span><span>	</span><span>Align pre-OS hotkey of &quot;Enter BIOS setup&quot;/Display Boot Menu&quot;/&quot;Crisis Recovery&quot; for tablet</span><br/><span>23.</span><span>	</span><span>Add &quot;D2D Recovery&quot; entry in BIOS setup menu of tablet</span><br/><span>24.</span><span>	</span><span>Remove &quot;D2D Recovery&quot; option from BIOS setup menu of tablet</span><br/><span>25.</span><span>	</span><span>Add &quot;Individual windows button could wake up system from S3.&quot; for tablet</span><br/><span>26.</span><span>	</span><span>Add &quot;Not enable fast boot if tablet bundle with USB docking&quot; for tablet</span><br/><span>27.</span><span>	</span><span>Set Quite boot default as “Enable”</span><br/><span>28.</span><span>	</span><span>Add &quot;Valid Power button event is keep pressing 2 sec power button by HW silicon judgment&quot; for tablet</span><br/><span>29.</span><span>	</span><span>Add picture of &quot;D2D Recovery&quot; and its prompt confirmation dialog</span><br/><span>30.</span><span>	</span><span>Add picture of &quot;Clear TPM&quot; and its prompt confirmation dialog</span><br/><span>31.</span><span>	</span><span>Add &quot;Firmware Capsule Update WHCK Process&quot; attachment </span><br/><span>32.</span><span>	</span><span>Update &quot;key code&quot; attachment to V2.00.</span><br/><span>33.</span><span>	</span><span>Update &quot;Acer Indicator spec for Win8&quot; attachment</span><br/><span>34.</span><span>	</span><span>Add &quot;Charging Indicator&quot; section for tablet</span><br/><span>35.</span><span>	</span><span>Add boot mode automatic change support for commercial projects</span><br/><span>36.</span><span>	</span><span>Bind VRAM table directly into spec and update the new platform definition</span><br/><span>37.</span><span>	</span><span>Add description “To change password in SCU, entering current password and retry three times error, system halt.”</span><br/><span>38.</span><span>	</span><span>Add description about non-support Fn function keys under non-ACPI</span><br/><span>39.</span><span>	</span><span>Add PTP into wake up event</span><br/><span>40.</span><span>	</span><span>Add SCU option for PTP support</span><br/><span>41.</span><span>	</span><span>Modified boot failure description in more detail</span><br/><span>42.</span><span>	</span><span>Add Smart learning battery support</span><br/><span>43.</span><span>	</span><span>Add description about eMMC must have size information on SCU</span><br/><span>44.</span><span>	</span><span>Modified SLIC table requirement </span><br/><span>45.</span><span>	</span><span>Add Power Button on Keyboard support</span><br/><span>46.</span><span>	</span><span>Update TPM support policy and SCU layout</span><br/><span>47.</span><span>	</span><span>Sync up power-off USB charge behavior with Quick Access</span><br/><span>48.</span><span>	</span><span>Remove special symbol empty title</span><br/><span>49.</span><span>	</span><span>Add fingerprint enable/disable SCU option</span><br/><span>50.</span><span>	</span><span>Add section “6.7 Smooth Battery Percentage”</span><br/><span>51.</span><span>	</span><span>Hidden “Special Key” BIOS setup option for Acer Brand model</span><br/><span>52.</span><span>	</span><span>Removed “for Non-CS system” of “Selected an UEFI file as trusted for executing”.</span></td></tr><tr><td><span>  1.14  </span></td><td><span>  2014/12/10  </span></td><td><span>1.</span><span>	</span><span>Remove “Hidden only when Legacy Boot Type” statement of “Change TPM status (for TPM 2.0)” option of BIOS SCU</span><br/><span>2.</span><span>	</span><span>Add a new section 4.1.15.3.2 Battery Percentage</span><br/><span>3.</span><span>	</span><span>Add Power-off USB charge port not support USB wake </span><br/><span>4.</span><span>	</span><span>AHCI support (for both Intel 965/945 chipset family)==&gt;remove 965/945 wording</span><br/><span>5.</span><span>	</span><span>Add note to the title about &quot;InsydeH2O Setup Utility&quot; instead of BIOS setup utility </span><br/><span>6.</span><span>	</span><span>Add description about auto hidden GPT recovery option if partition is not GPT</span><br/><span>7.</span><span>	</span><span>Add description about the limitation of GPT partition recovery to maximum 8 partitions</span><br/><span>8.</span><span>	</span><span>Remove 4.3.1 due to iRST phrasing out</span><br/><span>9.</span><span>	</span><span>Remove iRST description from LID open resume support for ultrabook</span><br/><span>10.</span><span>	</span><span>Modified RAID section description</span><br/><span>11.</span><span>	</span><span>Add to LID Open resume default depends on projects request</span><br/><span>12.</span><span>	</span><span>Add description about the power button on keyboard behavior limiting to S0.</span><br/><span>13.</span><span>	</span><span>Add enable capsule update support for all NB</span><br/><span>14.</span><span>	</span><span>Modified 3.7 video switch to leverage win+P</span><br/><span>15.</span><span>	</span><span>change win8.1 to “win8.1 and above”</span><br/><span>16.</span><span>	</span><span>Update LED spec to V0.7</span><br/><span>17.</span><span>	</span><span>Add hiding xHCI enable/disable if platform only exist one of the controller </span><br/><span>18.</span><span>	</span><span>Add panel off definition for WLAN, wake on WLAN</span><br/><span>19.</span><span>	</span><span>Move SCU Wake on WLAN to commercial SCU</span><br/><span>20.</span><span>	</span><span>Correct typo of Carrizo</span><br/><span>21.</span><span>	</span><span>Remove pressing “ESC” switching to text mode support</span><br/><span>22.</span><span>	</span><span>Add SwitchLock option and behavior in BIOS setup menu of Tablet</span><br/><span>Modified SLIC table control table</span></td></tr><tr><td><span>  1.15  </span></td><td><span>  2015/8/30  </span></td><td><span>1.</span><span>	</span><span>Add WiGig enable/disable option into advance page</span><br/><span>2.</span><span>	</span><span>Modify Hotkey support of tablet</span><br/><span>3.</span><span>	</span><span>Add USB Docking Hot plug support section</span><br/><span>4.</span><span>	</span><span>Add statement in Smooth Battery Percentage section. &quot;If Full Charge bit is supported in gas gauge design, please implement and follow Battery Percentage algorithm in Notebook section”</span><br/><span>5.</span><span>	</span><span>Remove statement of D2D Recovery option of GUI SCU. &quot;The option is only visible on tablet without windows button&quot; of D2D Recovery option</span><br/><span>6.</span><span>	</span><span>Add &quot;Current TPM&quot; &amp; &quot;Change TPM state&quot; to replace &quot;TPM support&quot; option of GUI SCU </span><br/><span>7.</span><span>	</span><span>Add “Network Boot” option of GUI SCU. Option is hidden and default is Enabled.</span><br/><span>8.</span><span>	</span><span>Add “Network Boot-IPV4” Boot device in Boot Priority order of GUI SCU.</span><br/><span>9.</span><span>	</span><span>Add “GPT Partition Recovery/Record” option in Main page of GUI SCU.</span><br/><span>10.</span><span>	</span><span>Remove CPU speed display from SCU and change CPU Type to CPU Info</span><br/><span>11.</span><span>	</span><span>Remove SATA mode selection from SCU main page</span><br/><span>12.</span><span>	</span><span>Add SATA Mode display on SCU information tab</span><br/><span>13.</span><span>	</span><span>Define RAID SKU should set SATA mode to RAID</span><br/><span>14.</span><span>	</span><span>Add LID close disable keyboard, touch pad and touch panel into spec</span><br/><span>15.</span><span>	</span><span>Add TPM China policy: If systems ship to China, TPM must be disabled</span><br/><span>16.</span><span>	</span><span>Move total memory from “Main” tab to “Information” tab</span><br/><span>17.</span><span>	</span><span>Add type C related definition</span><br/><span>18.</span><span>	</span><span>Add disable unexposed I/O port</span><br/><span>19.</span><span>	</span><span>Add WLAN country code identification</span><br/><span>20.</span><span>	</span><span>Add touch panel hot key behavior description</span><br/><span>21.</span><span>	</span><span>Update SMBIOS check list “SMBIOS type0 BIOS vender should be Insyde/Phoenix”</span><br/><span>22.</span><span>	</span><span>Update AMD pre-allocate VRAM size</span><br/><span>23.</span><span>	</span><span>Remove Chipset Feature title since there is no content</span><br/><span>24.</span><span>	</span><span>Change power-off charge port support USB wake as normal USB port definition</span><br/><span>25.</span><span>	</span><span>Add eMMc as default boot device if eMMc plus HDD exist in the same system</span><br/><span>26.</span><span>	</span><span>Add NVMe not support HDD security display on SCU. </span><br/><span>27.</span><span>	</span><span>Add statement of XHCI support of GUI SCU. “Hidden the option if platform only exist one of the controller (xHCI or EHCI) alone</span><br/><span>28.</span><span>	</span><span>Add HW button PTP definition</span><br/><span>29.</span><span>	</span><span>Add LTE description into commercial SCU 3G device enable/disable</span><br/><span>30.</span><span>	</span><span>Add “Clear” function into GPT recovery feature.</span><br/><span>31.</span><span>	</span><span>Add error message into GPT recovery section</span><br/><span>32.</span><span>	</span><span>Update Copyright to 2016</span><br/><span>33.</span><span>	</span><span>Add description for USB LAN dongle support PXE no matter legacy or UEFI</span><br/><span>34.</span><span>	</span><span>Add SMBIOS family name rule</span><br/><span>35.</span><span>	</span><span>Update SLIC table</span><br/><span>36.</span><span>	</span><span>Modify Capsule update UI</span><br/><span>37.</span><span>	</span><span>Add to follow “Convertible Mode Usage PES” for convertible projects</span><br/><span>38.</span><span>	</span><span>Adjust allowing BIOS flash battery capacity to 25% to follow Capsule update</span><br/><span>39.</span><span>	</span><span>Add Predator serial Logo</span></td></tr><tr><td><span>  1.16  </span></td><td><span>  2016/2/04  </span></td><td><span>1.</span><span>	</span><span>Add Type C enable/disable option </span><br/><span>2.</span><span>	</span><span>Change GPT clear option layout</span><br/><span>3.</span><span>	</span><span>Remove Type-C type detection requirement</span><br/><span>4.</span><span>	</span><span>Update family name table for SMBIOS type 1 Offset 1Ah</span><br/><span>5.</span><span>	</span><span>Fix typo of WiGig enable/disable option description</span><br/><span>6.</span><span>	</span><span>Remove coldboot request after set HDD password</span><br/><span>7.</span><span>	</span><span>Remove display only HDD0 password if 2nd HDD configure as RAID</span><br/><span>8.</span><span>	</span><span>If keyboard printing of Acer/PB/GW is the same, hide [Function key/Special key] switch option</span><br/><span>9.</span><span>	</span><span>Change UUID display to every system no matter it has internal LAN or not</span><br/><span>10.</span><span>	</span><span>Update SMBIOS support to V3.0</span><br/><span>11.</span><span>	</span><span>Update chassis type definition</span><br/><span>12.</span><span>	</span><span>All key press and power button event can’t be triggered during Capsule update</span><br/><span>13.</span><span>	</span><span>Remove non necessary description on boot device failure</span><br/><span>14.</span><span>	</span><span>Update Intel platform pre-allocate VRAM size to 64MB due to 4K display support on win10</span><br/><span>15.</span><span>	</span><span>Revise AMD Stoney Ridge pre-allocate VRAM size</span><br/><span>16.</span><span>	</span><span>Update keyboard backlight behavior description</span><br/><span>17.</span><span>	</span><span>Update SLIC table</span><br/><span>18.</span><span>	</span><span>Update Acer logo to remove tagline</span></td></tr><tr><td><span>  1.17  </span></td><td><span>  2016/7/30  </span></td><td><span>1.</span><span>	</span><span>Update SMBIOS definition in order to support 2017 MDA</span><br/><span>2.</span><span>	</span><span>BIOS time zone default set to UTC+8 Taipei time</span><br/><span>3.</span><span>	</span><span>Add and modify WLAN regulatory support description and attach document</span><br/><span>4.</span><span>	</span><span>Password change to Unicode (UTF-8) format and update valid characters set corresponding to this change</span><br/><span>5.</span><span>	</span><span>Define dimming behavior when adjust keyboard backlit</span><br/><span>6.</span><span>	</span><span>Add gaming product follow “Acer Indicator Spec for Win8_Win10” description</span><br/><span>7.</span><span>	</span><span>Add description about HDD password could be modified even in frozen state</span><br/><span>8.</span><span>	</span><span>Remove “Special Key” option from SCU since keyboard printing are the same between Acer/GW/PB</span><br/><span>9.</span><span>	</span><span>Remove the available options for SCU user view</span><br/><span>10.</span><span>	</span><span>Add description about “BIOS should load default setting after flashing”.</span><br/><span>11.</span><span>	</span><span>Boot device order behavior change to UEFI definition. Only display bootable devices.</span><br/><span>12.</span><span>	</span><span>LID open resume default enable for all projects</span><br/><span>13.</span><span>	</span><span>SMBIOS check list update V1.06</span><br/><span>14.</span><span>	</span><span>Add Advanced Page for Virtualization and SATA Configuration menu</span><br/><span>15.</span><span>	</span><span>Add Virtualization must enable if platform support it</span><br/><span>16.</span><span>	</span><span>If commercial dock plug in, power button should function well even LID closed.</span><br/><span>17.</span><span>	</span><span>Update Industry spec version</span><br/><span>18.</span><span>	</span><span>Update “Acer indicator Spec for Win8_Win10_V0.9draft8”</span><br/><span>19.</span><span>	</span><span>Update “key codeV2.02” </span><br/><span>20.</span><span>	</span><span>Update capsule update process description and screenshot</span><br/><span>21.</span><span>	</span><span>Add connected standby and modern standby wake up event state.</span><br/><span>22.</span><span>	</span><span>Sync TXT mode SCU items with graphic mode SCU.</span><br/><span>23.</span><span>	</span><span>Update Acer Disk Sanitizer PES V0.04</span><br/><span>24.</span><span>	</span><span>Update Acer System Diagnose PES V0.06</span><br/><span>25.</span><span>	</span><span>Discrete GPU doesn’t support GOP and VBIOS version display</span><br/><span>26.</span><span>	</span><span>Update copyright message</span><br/><span>27.</span><span>	</span><span>For Intel platform which support Software Guard Extension (A.K.A SGX), BIOS must set to “Software control” for SGX configuration.</span><br/><span>28.</span><span>	</span><span>Correct WiGig SCU description</span><br/><span>29.</span><span>	</span><span>Add Kabylake Pre-allocate VRAM size</span><br/><span>30.</span><span>	</span><span>Update Graphic SCU product name length to 25 bytes (same as TXT SCU)</span><br/><span>31.</span><span>	</span><span>When system battery capacity reaching stop charging condition, it won’t support USB S3 wake-up through type C.</span><br/><span>32.</span><span>	</span><span>Add one more layer to the Advanced page for commercial projects. Shift all device control into a sub-menu of Advanced page.</span></td></tr><tr><td><span>  1.18  </span></td><td><span>  2016/11/15  </span></td><td><span>1.</span><span>	</span><span>Add screenshots for 2017 modified graphic SCU</span><br/><span>2.</span><span>	</span><span>Update screenshots for text mode SCU</span><br/><span>3.</span><span>	</span><span>Add description about battery capacity calculation rule. It must round the value with remaining capacity divided by full charge capacity.</span><br/><span>4.</span><span>	</span><span>Add acoustic setting definition for Intel platform</span><br/><span>5.</span><span>	</span><span>Add PCI pay load setting definition for Intel platform which support the adjustment</span><br/><span>6.</span><span>	</span><span>Add “Wake on USB while lid closed” option to the SCU main tab</span><br/><span>7.</span><span>	</span><span>Add “TBT Detection Gain” option to the Advanced SCU tab</span><br/><span>8.</span><span>	</span><span>Change Absolute section. ODM get latest implementation guide/BIOS package/test report template from vendor directly.</span><br/><span>9.</span><span>	</span><span>Add iSST support for Intel platform.</span><br/><span>10.</span><span>	</span><span>Update UUID display format</span></td></tr><tr><td><span>  1.19  </span></td><td><span>  2017/08/02  </span></td><td><span>1.</span><span>	</span><span>Force Wi-Fi device power limit to 2000 for Intel big core platform (4.1.6.3).</span><br/><span>2.</span><span>	</span><span>Change “Linpus” to “Linux” support</span><br/><span>3.</span><span>	</span><span>Remove BIOS timezone definition </span><br/><span>4.</span><span>	</span><span>Update description of PCI-E power saving section (4.1.18)</span><br/><span>5.</span><span>	</span><span>Add special design highlight to embedded display (4.1.5.1). If system design has limitation to retrieve EDID from embedded display (e.g. panel connect to system through MIPI), BIOS must provide EDID data for OS to query.</span><br/><span>6.</span><span>	</span><span>Add “POST Animation &amp; Sound effect” section (3.15). Also add SCU item for user to control.</span><br/><span>7.</span><span>	</span><span>Remove GPT feature</span><br/><span>8.</span><span>	</span><span>Add Media Key/Function Key switch (4.1.1.3). Also add BIOS setup option.</span><br/><span>9.</span><span>	</span><span>Update CHID table</span><br/><span>10.</span><span>	</span><span>Add HWP enabling by default</span><br/><span>11.</span><span>	</span><span>Add enabling SGX by default if system adapt ePayment which leverage SGX technology (4.4)</span><br/><span>12.</span><span>	</span><span>Add Wake up on time option into commercial SCU advanced page</span><br/><span>13.</span><span>	</span><span>Add speaker &amp; headphone, microphone, Optical drive enable/disable option into commercial SCU device control</span><br/><span>14.</span><span>	</span><span>Change password length from 12 to 16 characters</span><br/><span>15.</span><span>	</span><span>Update pre-allocate VRAM size for new platform (4.1.5.3)</span><br/><span>16.</span><span>	</span><span>Remove Touchpad configuring option due to not necessary for the new platform</span><br/><span>17.</span><span>	</span><span>Hide SATA device control option if BIOS set to RAID</span><br/><span>18.</span><span>	</span><span>Add TBT wake support and BIOS SCU setting</span><br/><span>19.</span><span>	</span><span>Modify USB wake capability to follow SCU setting</span><br/><span>20.</span><span>	</span><span>Update WLAN Regulatory Support document for Dynamic power switch</span><br/><span>21.</span><span>	</span><span>Update SMBIOS check list for Dynamic power switch</span><br/><span>22.</span><span>	</span><span>Add AMD-SVM control option</span><br/><span>23.</span><span>	</span><span>Add OPAL support description (3.2.1.1) and SCU items</span><br/><span>24.</span><span>	</span><span>Add Firmware capsule update power check requirement</span><br/><span>25.</span><span>	</span><span>Add embedded panel backlight on/off requirement for system built with USB keyboard (4.1.1.5)</span><br/><span>26.</span><span>	</span><span>BIOS fixes panel backlight to 150 nits during whole POST period.</span><br/><span>27.</span><span>	</span><span>Hide “Wake on USB while LID close” option on modern standby design</span><br/><span>28.</span><span>	</span><span>Add SATA mode option into Main page</span><br/><span>29.</span><span>	</span><span>Add Optane memory section (4.1.21)</span><br/><span>30.</span><span>	</span><span>Replace connected standby with modern standby to avoid confusion</span><br/><span>31.</span><span>	</span><span>Remove Lightning bolt section due to no long support</span><br/><span>32.</span><span>	</span><span>Update Graphic SCU mapping to text SCU modification</span><br/><span>33.</span><span>	</span><span>Update RF button and communication key control flow (4.1.1.4)</span><br/><span>34.</span><span>	</span><span>Remove iRST from wake up event table</span><br/><span>35.</span><span>	</span><span>Add Win 10 S support</span><br/><span>36.</span><span>	</span><span>Modify BIOS flash forbidden rule to “If BIOS binary is not newer than system BIOS version”</span><br/><span>37.</span><span>	</span><span>Update Copyright year to 2018</span><br/><span>38.</span><span>	</span><span>Modify TBT detection gain description</span><br/><span>39.</span><span>	</span><span>Add OPAL password behavior in different power state and if it could keep after BIOS update</span><br/><span>40.</span><span>	</span><span>Update Firmware Capsule Update WHCK process document</span><br/><span>41.</span><span>	</span><span>Update Key Code table to V2.04</span><br/><span>42.</span><span>	</span><span>Add OPAL device to information page</span><br/><span>43.</span><span>	</span><span>Add a to z into password scope</span><br/><span>44.</span><span>	</span><span>Add “For PCIE storage device, L1.2 is required.”</span></td></tr><tr><td><span>  1.20  </span></td><td><span>  2018/2/27  </span></td><td><span>1.</span><span>	</span><span>Modify chapter 2.3 Windows Connected Standby statement to Windows Modern Standby</span><br/><span>2.</span><span>	</span><span>[Setup Menu]Modify TBT wake and USB wake option description</span><br/><span>3.</span><span>	</span><span>Add if IHV doesn’t support legacy in the platform, hide legacy option from boot mode setting in SCU</span><br/><span>4.</span><span>	</span><span>Modify Type-C charging behavior</span><br/><span>5.</span><span>	</span><span>Modify HDD serial number display rule. If no hard disk or other devices are installed, “None” should be shown on this field.</span><br/><span>6.</span><span>	</span><span>Remove storage device name display after windows boot manager no matter at SCU boot order screen or F12 boot menu</span><br/><span>7.</span><span>	</span><span>Hotkey and LED spec will release by SWPM independently and separate from BIOS SPEC. ODM could get specs from FTP (/DQC/Design Guide/NB_WTablet/BIOS)</span><br/><span>8.</span><span>	</span><span>Correct description of SATA mode setting on graphic SCU</span><br/><span>9.</span><span>	</span><span>Modified SATA mode setting description to avoid confusion. “Set to [RST Premium with Optane] if project features support RAID SKU (AMD platform set to [RAID])”</span><br/><span>10.</span><span>	</span><span>Define EC Reset and RTC Reset hotkey</span><br/><span>11.</span><span>	</span><span>Define “Wake up system on time” option default setting to “Disabled”. Grey out Wake up hour/minute/second options if function is disabled.</span><br/><span>12.</span><span>	</span><span>Remove “EC reference design guide” wording</span><br/><span>13.</span><span>	</span><span>Update Chipset Abbreviation of CHID-8</span><br/><span>14.</span><span>	</span><span>Add “Progressing bar” as required display of capsule update because of MDA</span><br/><span>15.</span><span>	</span><span>Add force STBI section to prevent SSD entering recovery mode and causing problem</span><br/><span>16.</span><span>	</span><span>CAUTION: Due to current critical design issue relating to Re-mapping and OPAL protocol under S3, only implement the support when project must adapt OPAL. In that case, project must disable Re-mapping to avoid problem.</span><br/><span>17.</span><span>	</span><span>Add boot path definition for UEFL shell</span><br/><span>18.</span><span>	</span><span>Change SATA configuration to Storage Device configuration. SATA and PCIE storage devices both included. Display mapping to information tab.</span><br/><span>19.</span><span>	</span><span>Change description of critical battery LED control to follow LED SPEC. “If end user press button when battery capacity &lt;= 3%, EC need to follow LED spec blinking and prevent system from booting.”</span><br/><span>20.</span><span>	</span><span>Add OS combination key support to Tablet SPEC. For Intel platform, Tablet project must adapt Intel HID filter driver.</span></td></tr><tr><td><span>  1.21  </span></td><td><span>  2019/01/31  </span></td><td><span>1.</span><span>	</span><span>Add Modern Standby system power button behavior in section 2.3.7</span><br/><span>2.</span><span>	</span><span>Add Amber Lake and Comet Lake definition into platform abbreviation list</span><br/><span>3.</span><span>	</span><span>Add option to mute the sound of POST animation</span><br/><span>4.</span><span>	</span><span>Add option to disable Internal KB Numpad support</span><br/><span>5.</span><span>	</span><span>Add option to enable/disable Fast Boot. The purpose is to support the case that User required long POST time. Skip UEFI defined timeout variable if Fast Boot enabled.</span><br/><span>6.</span><span>	</span><span>Change how storage naming for Info/Security/Device control page. Remove single OPAL storage display. Only add (OPAL) for identification.</span><br/><span>7.</span><span>	</span><span>Add “Save &amp; Shutdown” option in “Exit” tab of SCU</span><br/><span>8.</span><span>	</span><span>Linux SKU, configure PTP to I2C (&gt;=Win8.1)</span><br/><span>9.</span><span>	</span><span>Remove ASF Configuration from SCU</span><br/><span>10.</span><span>	</span><span>Add CNVI WLAN/BT control option to SCU</span><br/><span>11.</span><span>	</span><span>Update SMBIOS checklist to V1.08 to correct SMBIOS type F9h/371d to the right value F9h/249d</span><br/><span>12.</span><span>	</span><span>Modified SATA option for better understanding</span><br/><span>13.</span><span>	</span><span>Add definition of Intel RST software feature mask setting configured by SATA BIOS option</span><br/><span>14.</span><span>	</span><span>Correct Capsule Update warning icon</span><br/><span>15.</span><span>	</span><span>Define RPMC support for Intel platform</span><br/><span>16.</span><span>	</span><span>Add enable/disable keyboard backlight timeout</span><br/><span>17.</span><span>	</span><span>Crisis should clear whole variable section. Remove secure boot key from crisis secure data.</span><br/><span>18.</span><span>	</span><span>Add OEM table ID definition</span><br/><span>19.</span><span>	</span><span>Add preserving FUB variable after flashing BIOS</span><br/><span>20.</span><span>	</span><span>Add USB-C Docking Station support</span></td></tr><tr><td><span>  1.22  </span></td><td><span>  2019/09/05  </span></td><td><span>1.</span><span>	</span><span>Update Copyright year to 2019 (P67)</span><br/><span>2.</span><span>	</span><span>Add Battery over Discharging Protection of USB charging (P94)</span><br/><span>3.</span><span>	</span><span>Add statement for MDA requirement (P30)</span><br/><span>4.</span><span>	</span><span>Add new platform definition into platform abbreviation list (P30)</span><br/><span>5.</span><span>	</span><span>Add VRAM size definition new platform support (P84)</span><br/><span>6.</span><span>	</span><span>Add Display Language option into Main page (P41)</span><br/><span>7.</span><span>	</span><span>Add RTC reset option into Main page (P41)</span><br/><span>8.</span><span>	</span><span>Change wording from “Wake Up System on time“ to “Power On by RTC Alarm” (P99)</span><br/><span>9.</span><span>	</span><span>Change password behavior (P51)</span><br/><span>10.</span><span>	</span><span>Change SATA mode behavior (P42)</span><br/><span>11.</span><span>	</span><span>Remove Commercial BIOS “Boot Mode automatic change support “ section (P108)</span><br/><span>12.</span><span>	</span><span>Add BIOS Update option into Commercial BIOS Advanced page (P100)</span><br/><span>13.</span><span>	</span><span>Add Lock BIOS Version option into Commercial BIOS Advanced page (P100)</span><br/><span>14.</span><span>	</span><span>Add Rollback BIOS Version option into Commercial BIOS Advanced page (P100)</span><br/><span>15.</span><span>	</span><span>Add Acer Battery System Management support (P97)</span><br/><span>16.</span><span>	</span><span>Modify Precision touchpad description (P91)</span></td></tr><tr><td><span>  1.23  </span></td><td><span>  2020/01/10  </span></td><td><span>1.</span><span>	</span><span>Adjust hotkey support table and remove RTC reset hotkey &amp; SCU option (P46) (P78)</span><br/><span>2.</span><span>	</span><span>Add combination key support chapter (P83)</span><br/><span>3.</span><span>	</span><span>Add UUID definition in SMBIOS Type1 (P68)</span><br/><span>4.</span><span>	</span><span>Add “BIOS SCU settings should be kept after flashing” description. (P26)</span><br/><span>5.</span><span>	</span><span>Add Export BIOS Settings to USB Storage option into Commercial BIOS Advanced page (P101)</span><br/><span>6.</span><span>	</span><span>Add Import BIOS Settings from USB Storage option into Commercial BIOS Advanced page (P101)</span><br/><span>7.</span><span>	</span><span>Change Load Setup Defaults option to Load Factory Setup Default option in Commercial BIOS Exit page (P113)</span><br/><span>8.</span><span>	</span><span>Add Save Settings to User Setup Defaults option into Commercial BIOS Exit page (P113)</span><br/><span>9.</span><span>	</span><span>Add Load User Setup Defaults option into Commercial BIOS Exit page (P113)</span><br/><span>10.</span><span>	</span><span>Add USB Filter option into Commercial BIOS Advanced page (P111)</span><br/><span>11.</span><span>	</span><span>Add Absolute Persistence Module option into Commercial BIOS Security page (P112)</span><br/><span>12.</span><span>	</span><span>Update System Firmware Capsule Update SPEC 2.6 (P30)</span><br/><span>13.</span><span>	</span><span>Add VMD(Intel Volume Manage Device Bootcamp) support (P40) (P43)</span><br/><span>14.</span><span>	</span><span>Adjust TPM China policy (P94)</span><br/><span>15.</span><span>	</span><span>Adjust Backlight Keyboard description (P80)</span></td></tr><tr><td><span>  1.24  </span></td><td><span>  2020/08/04  </span></td><td><span>1.</span><span>	</span><span>Update Copyright year to 2020 (P70)</span><br/><span>2.</span><span>	</span><span>Add Russian and France language support (P47)</span><br/><span>3.</span><span>	</span><span>List BIOS supported 12 languages (P47)</span><br/><span>4.</span><span>	</span><span>Add customized POST logo replacement support into Commercial BIOS (P119)</span><br/><span>5.</span><span>	</span><span>Rename “USB filter” item to “USB Device Filter” in Commercial BIOS (P114)</span><br/><span>6.</span><span>	</span><span>Add project name check mechanism when importing BIOS Settings from USB Storage into Commercial BIOS (106)</span><br/><span>7.</span><span>	</span><span>Add warning dialog if user chooses Permanently Disable for Absolute Persistent Module into Commercial BIOS (P116)</span><br/><span>8.</span><span>	</span><span>Add dialog box for “Save Settings to User Setup Defaults” item into Commercial  BIOS (P118)</span><br/><span>9.</span><span>	</span><span>Add Thunderbolt Controller enable/disable option support into Commercial       BIOS (P113)</span><br/><span>10.</span><span>	</span><span>Update Predator and ConceptD POST logo (P73)</span><br/><span>11.</span><span>	</span><span>Add new platform definition into platform abbreviation list (P33)</span><br/><span>12.</span><span>	</span><span>Gray out Boot Mode option if only support uEFI mode (P61)</span><br/><span>13.</span><span>	</span><span>Define OPAL password length up to 32 characters (P65)</span><br/><span>14.</span><span>	</span><span>Update Windows OEM Activation table (P38)</span><br/><span>15.</span><span>	</span><span>Crisis recovery no need to keep BIOS SCU settings (P27)</span><br/><span>16.</span><span>	</span><span>Default enable BT audio offload for Intel CNVi design (P102)</span><br/><span>17.</span><span>	</span><span>Add MS state support for Battery over Discharging Protection of USB charging (P98)</span><br/><span>18.</span><span>	</span><span>Add ME capsule update support (P31)</span><br/><span>19.</span><span>	</span><span>Add Device Firmware should meet power check criteria (P31)</span><br/><span>20.</span><span>	</span><span>Add combination key support (P85)</span></td></tr><tr><td><span>  1.25  </span></td><td><span>  2021/02/09  </span></td><td><span>1.</span><span>	</span><span>Add FUB variable support (P29)</span><br/><span>2.</span><span>	</span><span>Remove Device Firmware to do Intel CSME/CSE capsule update (P30)</span><br/><span>3.</span><span>	</span><span>Virtual Keyboard support in Tablet BIOS requirements (P124)</span><br/><span>4.</span><span>	</span><span>Modify Type C support behavior (P98)</span><br/><span>5.</span><span>	</span><span>MAPT and WOL from Dock support for commercial BIOS (P105) (P107)</span><br/><span>6.</span><span>	</span><span>Add System Health Indicator support for commercial BIOS (P105) (P116)</span><br/><span>7.</span><span>	</span><span>Remove 6.11 chapter Graphics BIOS Setup Utility support (P124)</span><br/><span>8.</span><span>	</span><span>Add Modern Standby Indicator support (P37)</span><br/><span>9.</span><span>	</span><span>Replace Packard Bell and Predator logo (P73)</span><br/><span>10.</span><span>	</span><span>Change HDD password behavior(P54)</span></td></tr><tr><td><span>  1.26  </span></td><td><span>  2021/09/07  </span></td><td><span>1.</span><span>	</span><span>Redefined chapter 3.5.3 to Power button Behavior (P79)</span><br/><span>2.</span><span>	</span><span>Change Product name maximum length to 50 bytes (P43) (P44) (P72)</span><br/><span>3.</span><span>	</span><span>Update Copyright year to 2021 (P74)</span><br/><span>4.</span><span>	</span><span>Default to hide TBT Detection Gain item (P53)</span><br/><span>5.</span><span>	</span><span>Modify MAPT and WOL from docking behavior (P111)</span><br/><span>6.</span><span>	</span><span>Support customized MAC address for MAPT (P111)</span><br/><span>7.</span><span>	</span><span>Modify EC reset behavior (P84)</span><br/><span>8.</span><span>	</span><span>Add new platform definition into platform abbreviation list (P34)</span><br/><span>9.</span><span>	</span><span>Modify Intel CNVi Bluetooth settings description (P106)</span><br/><span>10.</span><span>	</span><span>Add NVMe RAID mode option for AMD platform (P45)</span><br/><span>11.</span><span>	</span><span>Add Resizable Bar feature support (P45)</span><br/><span>12.</span><span>	</span><span>Add Privacy Screen support for commercial BIOS (P109)</span><br/><span>13.</span><span>	</span><span>Update WLAN Regulatory Support BIOS design guide to v1.5 (P82)</span><br/><span>14.</span><span>	</span><span>Crisis Recovery doesn`t need support Lock BIOS Version (P110)</span><br/><span>15.</span><span>	</span><span>Update Power State Password check table OPAL password behavior (P70)</span><br/><span>16.</span><span>	</span><span>Add the restrictions for OPAL password support (P69)</span><br/><span>17.</span><span>	</span><span>Add one hotkey backlit brightness behavior (P87)</span><br/><span>18.</span><span>	</span><span>Adjust TPM China policy (P100) (P126)</span><br/><span>19.</span><span>	</span><span>Add NVME SSD password support for commercial BIOS (P54) (P122)</span><br/><span>20.</span><span>	</span><span>Add product name check for BIOS update option for commercial BIOS (P110)</span><br/><span>21.</span><span>	</span><span>Add Win 11 support and remove unsupported OS (P35)</span><br/><span>22.</span><span>	</span><span>Add Modern Standby Indicator description (P39)</span><br/><span>23.</span><span>	</span><span>Add PD adapter warning message support (P101)</span><br/><span>24.</span><span>	</span><span>Modify TXT function criteria for commercial BIOS (P126)</span><br/><span>25.</span><span>	</span><span>Add Boot Guard support requirement (P106)</span><br/><span>26.</span><span>	</span><span>Add Nvidia Display mode support (P52)</span><br/><span>27.</span><span>	</span><span>Add Secured-Core PC variable support and modify preserved variable data for Secured data (P31)</span><br/><span>28.</span><span>	</span><span>Add Secured-Core PC support for commercial BIOS (P126)</span><br/><span>29.</span><span>	</span><span>Add MSFT DFCI support (P126)</span></td></tr><tr><td><span>  1.27  </span></td><td><span>  2022/03/30  </span></td><td><span>1.</span><span>	</span><span>Add “Service Key” combination key (section 4.1.1.10) </span><br/><span>2.</span><span>	</span><span>Add Executed Revert Count option for commercial BIOS (section 5.4.3) </span><br/><span>3.</span><span>	</span><span>Add DFCI/ABST support option (section 3.1.1.1)</span><br/><span>4.</span><span>	</span><span>Add Secured-Core PC device identifier for commercial BIOS (section 5.5.5) </span><br/><span>5.</span><span>	</span><span>Modify TXT function description for commercial BIOS (section 5.5.3) </span><br/><span>6.</span><span>	</span><span>Modify Secured-core PC support description for commercial BIOS (section 5.5.4) </span><br/><span>7.</span><span>	</span><span>Add “Authorized Signatures” option for SCPC (section 5.4.3)</span><br/><span>8.</span><span>	</span><span>Supplement Intel TXT(Trusted Execution Technology) option for commercial BIOS (section 5.4.2) </span><br/><span>9.</span><span>	</span><span>Add NVIDIA GPU only support and warning message for Display Mode (section 3.1.1.3)</span><br/><span>10.</span><span>	</span><span>Add Memory size and speed in information tab of commercial features. (section 5.4.1)</span><br/><span>11.</span><span>	</span><span>Add LAN MAC Address in information tab of commercial features. (section 5.4.1)</span><br/><span>12.</span><span>	</span><span>Intel Chasm Falls Support Scope (section 5.9)</span><br/><span>13.</span><span>	</span><span>Update WLAN Regulatory Support BIOS design guide to v1.7 (section 3.12)</span><br/><span>14.</span><span>	</span><span>Pre-allocate VRAM Size for Intel platform. (section 4.1.5.3)</span><br/><span>15.</span><span>	</span><span>Discrete TPM Firmware Capsule update for commercial projects. (section 5.10)</span><br/><span>16.</span><span>	</span><span>TPM design update. (section 4.1.15.1)</span><br/><span>17.</span><span>	</span><span>Add Active Efficient Cores enable/disable control. (section 3.1.1.3)</span><br/><span>18.</span><span>	</span><span>Add AMD GPU support for Hybrid Graphic (section 3.1.1.3)</span><br/><span>19.</span><span>	</span><span>Screen display when crisis recovery (section 1.2.3)</span><br/><span>20.</span><span>	</span><span>Remove above 4G decoding (section 3.1.1.2)</span><br/><span>21.</span><span>	</span><span>Add new platform definition into platform list (section 1.3.2)</span><br/><span>22.</span><span>	</span><span>Optimize F2/F12 boot process (section 4.1.1.1)</span><br/><span>23.</span><span>	</span><span>Camera firmware capsule support (section 1.3)</span></td></tr><tr><td><span>  1.28  </span></td><td><span>  2022/10/13  </span></td><td><span>1.</span><span>	</span><span>Update Acer copyright string. (section 3.4.1.1)</span><br/><span>2.</span><span>	</span><span>eMMC/UFS don’t support HDD password. (section 3.2.1)</span><br/><span>3.</span><span>	</span><span>Education product support World-Facing LED. (section 5.4.2)</span><br/><span>4.</span><span>	</span><span>Modify Chinese string. (section 3.1.1.2)</span><br/><span>5.</span><span>	</span><span>Support eMMC/UFS (section 3.1.1.1). (section 3.1.1.3)</span><br/><span>6.</span><span>	</span><span>Modify string to full range charging (section 4.1.18)</span><br/><span>7.</span><span>	</span><span>Add modern standby support critical low battery wake. (section 4.2)</span><br/><span>8.</span><span>	</span><span>Add Intel GNA device and MEBx sub-page. (section 3.1.1.3) (section 5.4.2)</span><br/><span>9.</span><span>	</span><span>Add Type-A for Power-off USB Charge port. (section 4.1.11)</span><br/><span>10.</span><span>	</span><span>Add ownership tag feature. (section 3.3.1)</span><br/><span>11.</span><span>	</span><span>ABST support to read/write asset tag and ownership tag. (section 3.3.1)</span><br/><span>12.</span><span>	</span><span>Save encrypted key in USB storage for password unlock. (section 3.2.2)</span><br/><span>13.</span><span>	</span><span>Add Core Frequency for CPU. (section 3.1.1.1)</span><br/><span>14.</span><span>	</span><span>Add new platform definition into platform list (section 1.3.2)</span><br/><span>15.</span><span>	</span><span>Add AMD A/B Recovery Support. (section 5.11)</span><span>	</span><br/><span>16.</span><span>	</span><span>Add TPM Device Selection for commercial projects. (section 5.4.3) </span><br/><span>17.</span><span>	</span><span>TPM design update for consumer projects. (section 4.1.15.1)</span><br/><span>18.</span><span>	</span><span>Update Supervisor/User/HDD password style. (section 3.1.1.4)</span><br/><span>19.</span><span>	</span><span>Tender Request Enabling. (section 5.12) (section 1.2.4)</span><br/><span>20.</span><span>	</span><span>Align HDD and Opal password’s behavior after reboot (section 3.2.2)</span></td></tr><tr><td><span>  1.29  </span></td><td><span>  2023/4/20  </span></td><td><span>1.</span><span>	</span><span>Update On Board Memory information in Information page (section 5.4.1) (section 3.1.1.1)</span><br/><span>2.</span><span>	</span><span>Add Frequency and Voltage information for each memory device (section 3.1.1.1)</span><br/><span>3.</span><span>	</span><span>Add Unconfigure ME for COMMERCIAL BIOS REQUIREMENTS (section 5.4.2)</span><br/><span>4.</span><span>	</span><span>Add Asset Tag Number and OwnerShip Tag Number to Secured Data (section 1.2.4)</span><br/><span>5.</span><span>	</span><span>Update Display mode behavior for Nvidia (section 3.1.1.3)</span><br/><span>6.</span><span>	</span><span>Update one BIOS for all brands and product lines (section 3.9)</span><br/><span>7.</span><span>	</span><span>Add Acer Application Base Driver Requirement for BIOS ACPI device (3.15)</span><br/><span>8.</span><span>	</span><span>Remove “AcerDeviceEnablingServiceFlag” variable from Secured Data (section 1.2.4)</span><br/><span>9.</span><span>	</span><span>Modify Supervisor and User Password reset password description (section 3.2.2)</span><br/><span>10.</span><span>	</span><span>Add Acer Application Base Driver Requirement and Power Shell WMI feature to Tender Request Enabling (5.12)</span><br/><span>11.</span><span>	</span><span>Remove Touch Pad Item under Setup menu main tab (section 3.1.1.2)</span><br/><span>12.</span><span>	</span><span>Remove &quot;ctrl&quot; + &quot;D&quot; hot key for display &quot;System Diagnose&quot; and &quot;Disk Sanitizer&quot; item. (section 5.4.2)</span></td></tr><tr><td><span>  1.30  </span></td><td><span>  2023/10/15  </span></td><td><span>1.</span><span>	</span><span>Add New platform abbreviation (Section 1.3.2)</span><br/><span>2.</span><span>	</span><span>Modify Family name max length from 30 to 50 characters (Section 1.3.2)</span><br/><span>3.</span><span>	</span><span>Add section Battery Charge Limiting and Microsoft Smart Charging UX Support (4.1.22)</span><br/><span>4.</span><span>	</span><span>Set AMD-IOMMU item to always hidden in SCU (Section 3.1.1.3)</span><br/><span>5.</span><span>	</span><span>Set AMD-SVM item to always hidden in SCU (Section 3.1.1.3)</span><br/><span>6.</span><span>	</span><span>MAC Address should add an “External” String on Boot Menu (Section 3.1.1.5)</span><br/><span>7.</span><span>	</span><span>Modify description of TPM Device Selection (Section 5.4.3)</span><br/><span>8.</span><span>	</span><span>Add TPM Device Selection Option to Consumer (Section 3.1.1.4)</span><br/><span>9.</span><span>	</span><span>Change 3G/LTE to WWAN (Section 5.4.2) (Section 3.10) (Section 4.1.6.2)</span><br/><span>10.</span><span>	</span><span>Modify USB Device filter (Section 5.4.2)</span><br/><span>11.</span><span>	</span><span>Absolute should always grayed out if user set the value to Permanently disabled.</span><br/><span>12.</span><span>	</span><span>Add Kazakh to display language.</span><br/><span>13.</span><span>	</span><span>Change Text mode to GUI mode remove Information Tab (Section 3.1.1.1 and Section5.4.1) , Main Tab (Section 3.1.1.2) , Advanced Tab (Section 3.1.1.3 and Section 5.4.2) , Security Tab (Section 3.1.1.4 and Section 5.4.3) , Boot Tab (Section 3.1.1.5) , Exit Tab (Section 3.1.1.6 and Section 5.4.4)</span><br/><span>Modify to Graphis Set HDD Password (section 3.1.1.4), Change Supervisor Password (section 3.1.1.4), Erase all Secure boot settings (section 3.1.1.4), Selector UEFI file as trusted for executing (in section 3.1.1.4), Restore secure boot to factory default (in section 3.1.1.4), Exit Saving Changes (section 3.1.1.6 and 5.4.4), Load Setup Default (section 3.1.1.6), Exit Discarding Changes (section 3.1.1.6 and 5.4.4), Load Factory Setup Defaults(section 5.4.4), Save Settings to User Setup Default(section 5.4.4), Load User Setup Defaults(section 5.4.4) </span><br/><span>14.</span><span>	</span><span>Modify External monitor description. (Section 4.1.5.2)</span><br/><span>15.</span><span>	</span><span>Secure boot factory default keys data need to reload after Crisis. (Section 1.2.4)</span><br/><span>16.</span><span>	</span><span>Modify TBT Wake from S4 Support description (Section 3.1.1.2)</span></td></tr><tr><td><span>  1.31  </span></td><td><span>  2024/6/11  </span></td><td><span>1.</span><span>	</span><span>Remove Charge/Discharge relative define. (Section 4.1.18)</span><br/><span>2.</span><span>	</span><span>Provision for Copilot Key (Section 5.12.1)</span><br/><span>3.</span><span>	</span><span>Modify NFUB variable to FUB with different GUID (Section 1.2.4)</span><br/><span>4.</span><span>	</span><span>Remove Pre-allocate VRAM Size Section (Remove Section 4.1.5.3)</span><br/><span>5.</span><span>	</span><span>Add Dash and AIMT Support for AMD Pro (Section 5.4.2)</span><br/><span>6.</span><span>	</span><span>Add I2C HID / PS2 Switch in BIOS SCU (Section 3.1.1.2)</span><br/><span>7.</span><span>	</span><span>Add the temperature section to define for reading. (Section 3.1.1)</span><br/><span>8.</span><span>	</span><span>RF Button and Communication key Change for HID Keyboard (Section 4.1.1.4)</span><br/><span>9.</span><span>	</span><span>update display language for Ukrainian (Section 3.1.1.2)</span><br/><span>10.</span><span>	</span><span>Add CSR (Connected System Recovery) (Section 3.2.4)</span><br/><span>11.</span><span>	</span><span>Add Battery Information (Section 3.1.1.1)</span><br/><span>12.</span><span>	</span><span>Remove wake event while battery hit 6% under S0ix (Section 4.2)</span><br/><span>13.</span><span>	</span><span>Remove USB type A charge protect (Section 4.1.21)</span><br/><span>14.</span><span>	</span><span>Keep Password on Boot after RTC reset and crisis (Section 1.2.4)</span></td></tr></tbody></table></figure><p>&nbsp;</p><h1 id='1-industry-specifications'><span>1.</span><span>	</span><span>Industry Specifications</span></h1><figure class='table-figure'><table><thead><tr><th><span>   Industry Specification Requirements   </span></th><th><span>   Version   </span></th></tr></thead><tbody><tr><td><span>  Both of legacy BIOS and EFI  architecture support  </span></td><td><span>     </span></td></tr><tr><td><span>  PXE Specification version  </span></td><td><span>  2.1 or Later  </span></td></tr><tr><td><span>  SMBIOS Reference  Specification   </span></td><td><span>  version 3.0 or later  </span></td></tr><tr><td><span>  USB Specification revision  1.1/2.0/3.0  </span></td><td><span>  V3.0 or later  </span></td></tr><tr><td><span>  ASF Specification   </span></td><td><span>  version 2.0 or later  </span></td></tr><tr><td><span>  PCI/PCI Express Base  Specification   </span></td><td><span>  revision 3.0 or later  </span></td></tr><tr><td><span>  PCI BIOS Specification  </span></td><td><span>  revision 3.0 or later  </span></td></tr><tr><td><span>  BIOS Boot Specification   </span></td><td><span>  version 1.01 or later  </span></td></tr><tr><td><span>  Simple Boot Flag  Specification  </span></td><td><span>  2.1 or Later  </span></td></tr><tr><td><span>  System Management Bus  Specification   </span></td><td><span>  version 2.0 or later  </span></td></tr><tr><td><span>  AHCI support  </span></td><td><span>     </span></td></tr><tr><td><span>  Microsoft XP/Vista/Windows  7/ Windows 8/win10 Windows Logo Program requirements  </span></td><td><span>  XP and above  </span></td></tr><tr><td><span>  Microsoft SLP 1.0 support  </span></td><td><span>  Latest  </span></td></tr><tr><td><span>  Microsoft OA 2.0/2.1  support  </span></td><td><span>  Latest  </span></td></tr><tr><td><span>  Microsoft OA 3.0 support  </span></td><td><span>  Latest  </span></td></tr><tr><td><span>  ACPI Specification  </span></td><td><span>  5.0 or Later  </span></td></tr><tr><td><span>  UEFI SPEC  </span></td><td><span>  2.6 or Later  </span></td></tr><tr><td><span>  Intel V-pro implementation  </span></td><td><span>  Latest  </span></td></tr><tr><td><span>  AMD Virtualization  technology support and provide its options in BIOS Setup  </span></td><td><span>  Latest  </span></td></tr><tr><td><span>  Nvidia Optimus enabled  </span></td><td><span>  Latest  </span></td></tr><tr><td><span>  I2C  </span></td><td><span>  Latest  </span></td></tr><tr><td><span>  SMBUS  </span></td><td><span>  Latest  </span></td></tr><tr><td><span>  TCG Storage Security  Subsystem Class:OPAL  </span></td><td><span>  SSC V2.01 rev.1.00 or Later  </span></td></tr></tbody></table></figure><h2 id='11-brand-system-identification'><span>1.1</span><span>	</span><span>Brand System Identification</span></h2><figure class='table-figure'><table><thead><tr><th><span>  Brand   </span></th><th><span>  SMBIOS  Type 1 Manufacturer String Content  </span></th></tr></thead><tbody><tr><td><span>  Acer  </span></td><td><span>  Acer  </span></td></tr><tr><td><span>  Gateway  </span></td><td><span>  Gateway  </span></td></tr><tr><td><span>  Packard  Bell  </span></td><td><span>  Packard  Bell  </span></td></tr></tbody></table></figure><p><span> </span></p><figure class='table-figure'><table><thead><tr><th><span>  Brand  </span></th><th><span>  All OEM ID in ACPI  </span></th></tr></thead><tbody><tr><td><span>  Acer/Gateway/Packard Bell  </span></td><td><span>  ACRSYS  </span></td></tr></tbody></table></figure><p><span> </span></p><figure class='table-figure'><table><thead><tr><th><span>  Brand  </span></th><th><span>  All OEM table ID in ACPI  </span></th></tr></thead><tbody><tr><td><span>  Acer/Gateway/Packard Bell  </span></td><td><span>  ACRPRDCT  </span></td></tr></tbody></table></figure><h2 id='12-firmware-update'><span>1.2</span><span>	</span><span>Firmware Update</span></h2><p><span>Platform must support a secure firmware update process that ensures only signed firmware components that can be verified using the signature database (and are not invalidated by the forbidden signature database) can be installed.</span></p><p><span>BIOS SCU settings should be kept after flashing, but crisis recovery no need to keep SCU settings.</span></p><h3 id='121-----firmware-utility'><span>1.2.1     Firmware Utility</span></h3><p><span>n  Utilities are provided to flash BIOS in project supporting OS environments</span></p><p><span>n  Utility can self-execute and contains BIOS data for flashing.</span></p><p><span>n  One single Flash utility to flash all SKUs.</span></p><h3 id='122-----firmware-flash'><span>1.2.2     Firmware Flash</span></h3><figure class='table-figure'><table><thead><tr><th><span>     </span></th><th><span>  Before Firmware Flash  </span></th><th><span>  During Firmware Flash  </span></th><th><span>  After Firmware Flash  </span></th></tr></thead><tbody><tr><td><span>  Behavior  </span></td><td><span>The following should be prohibited to flash firmware </span><br/><span>•</span><span>	</span><span>BIOS Binary is not intended  for the system</span><br/><span>•</span><span>	</span><span>AC or DC doesn’t exist.  </span><br/><span>•</span><span>	</span><span>Battery capacity is lower than 25%.</span><br/><span>•</span><span>	</span><span>If BIOS binary is not newer than system BIOS version,(Commercial BIOS “Rollback BIOS Version” option is Supported is an exception)</span><br/><span>•</span><span>	</span><span>If Commercial BIOS “Lock BIOS Version” option is enabled</span><br/><span>•</span><span>	</span><span>Other process or application are running which may conflict the firmware burning process</span><br/><span>•</span><span>	</span><span>secure firmware update procedures are not implemented or met</span></td><td><span>     </span></td><td><span>•</span><span>	</span><span>System Reboot</span></td></tr><tr><td><span>  Message Display  </span></td><td><span>     </span></td><td><span>•</span><span>	</span><span>Display warning message reminds users: “Not to remove AC power source”.</span><br/><span>•</span><span>	</span><span>Display current flash progress and time elapse</span></td><td><span>     </span></td></tr></tbody></table></figure><h3 id='123-----crisis'><span>1.2.3     Crisis</span></h3><p><span>This feature provides an opportunity for system that cannot boot up and this operation is not intended to be done by the customers. With a USB flash disk, the system can be performed crisis recovery by using keyboard or Boot Block DIP2 switch.</span></p><p><span>Flash ROM includes a special non-volatile region that can never be erased. This region, call the boot block (Note. 1), contains a fail-safe recovery routine. If the boot block finds corrupted BIOS,</span></p><p><span>Crisis Recovery also must meet the secure firmware update process described in Secure Boot section. </span></p><figure class='table-figure'><table><thead><tr><th><span>  Before Firmware Flash  </span></th><th><span>  During Firmware Flash  </span></th><th><span>  After Firmware Flash  </span></th></tr></thead><tbody><tr><td><span>  ·        Steps: Power off  the system à apply AC power source à Plug-in the USB Flash Disk which contains BIOS crisis ROM file à Power on the system  from off state (i.e. cold boot) while holding down Fn + ESC key (Make sure AC  adapter is powered and plugged-in) à After POST,  release Fn + ESC key. They system should boot from source and perform crisis  recovery action.  ·        secure firmware update process requirement must be met  ·        Check if AC adapter is plug in  </span></td><td><span>  ·        Power LED flash every one second if system can’t show  crisis recovery progress on screen.  ·        System will have  screen to show crisis recovery progress.(Note.2)  </span></td><td><span>  ·        System Shutdown  </span></td></tr></tbody></table></figure><p><span>Note.1 Boot block only refreshed when it is necessary to update by platform reference code change.</span></p><p><span>Note 2. Progress sample as below for reference.</span></p><p><img src="D:\Study\markdown\S001\pic\image-20240916115718879.png" referrerpolicy="no-referrer" alt="image-20240916115718879"></p><h2 id='13------firmware-capsule-update'><span>1.3      Firmware capsule update</span></h2><p><span>BIOS must enable capsule update support.</span></p><p><span> </span></p><p><span>Please refer to Microsoft document ‘Windows UEFI Firmware Update Platform.xps’ for implementation details of system/device firmware update. Followings are additional requirement against the UEFI firmware capsule update.</span></p><p><span>	</span><span>System firmware (BIOS) must be deployed as driver package (INF).</span></p><p><span>	</span><span>If a device firmware could be upgraded by UEFI capsule, then the firmware should be deployed as device driver (installed via INF file).</span></p><p><span>	</span><span>Must specify a Firmware Resource in the EFI System Resource Table (ESRT)</span></p><p><span>n  The Firmware Resource will allow Windows to surface a device instance with a Hardware ID, which will be used to target the system or device firmware update to appropriate systems and devices. It also describes current firmware version and provides status for previous updates.</span></p><p><span>n  There exists a single entry for system firmware updates.</span></p><p><span>n  All devices with updateable firmware must have a resource specified in the ESRT. Except if a device’s firmware is updated as part of a system firmware update.</span></p><p><span>l  Firmware capsule update must not rollback system/device firmware. In case of target version is equal to installed version, the firmware package must be re-flashed again.</span></p><p><span>l  All key press and power button event can’t be triggered during Capsule update </span></p><p><span>l  Complete capsules include .INF, .FD and .CAT. The .CAT file is about signature and will be provided by Microsoft when Acer submits a legal and PASS WHCK report to Microsoft. Please refer to attached document of process between Acer and ODM about generate the capsule firmware WHCK report (.HCKX).                                </span></p><p><span>l  BIOS must follow latest System Firmware Capsule Update SPEC to implement. </span></p><p><span>l  BIOS must support Intel CSME/CSE capsule update and please follow System Firmware Capsule Update SPEC to implement. The change start from Tiger Lake, Jasper Lake and later platforms. </span></p><p><span>l  All on board Device Firmware should meet power check criteria, the details please refer to System Firmware Capsule Update SPEC chapter 2.3.</span></p><p><span>l  For devices with Enhanced Sign-in Security-capable USB cameras, BIOS should support firmware capsule and a Secure Devices (SDEV) table is required.</span></p><h3 id='131-----ui-components-of-capsule-update'><span>1.3.1     UI components of capsule update</span></h3><p><span>Please refer to the chapter 4, ‘UEFI firmwareupdateuserexperience’ in Microsoft document ‘Windows UEFI Firmware Update Platform.xps’ for UI implementation details during capsule update.</span></p><p><span>l  If the capsule update is handled by Windows loader, the UI component should have: Acer logo (same as POST screen) and update text by Windows loader, as the picture below shows (the display offset/percentage is only for reference). Progress Bar is required, but could be under or above the texts.</span></p><p><span>                               </span><img src="D:\Study\markdown\S001\pic\image-20240916120501127.png" referrerpolicy="no-referrer" alt="image-20240916120501127"><span> </span></p><p><span> </span></p><p><span>If the capsule is handled by BIOS code instead of Windows loader, the UI components should have Acer logo and update text as well. Attachment ‘FlashBIOSUpdateText.zip’ contains three picture of update text. </span></p><p><span>l  In order to indicate users the device update is under processing, BIOS must show UpdateText-0.png picture in the ‘FlashBIOSUpdateText.7z’ until flash completed.</span></p><p><img src="D:\Study\markdown\image-20240916120528654.png" referrerpolicy="no-referrer" alt="image-20240916120528654"></p><h3 id='132-----capsule-update-require-smbios-support'><span>1.3.2     Capsule update require SMBIOS support</span></h3><p><span>Since Windows requires certain information for windows update to identify the specific system to do the firmware update, BIOS needs to fill in the precise data into SMBIOS. All items list on Acer SMBIOS check list must be done.</span></p><p><span> </span></p><p><span>To fulfill new MDA requirement, some SMBIOS definitions require changes below:</span></p><p><span>-</span><span>   Family (Sub brand) [Type 1] è </span><em><span>Ref Marketing Name of BOM , Length =50 characters, the string from BOM should not contain “Manufacture Name”</span></em><span> </span></p><p><span>-</span><span>   SKU Number [Type 1]à “0000000000000000” 16 “0”</span></p><p><span>-</span><span>   Baseboard Manufacture (Platform abbreviation) [Type 2]</span></p><p><span>-</span><span>   Baseboard Product (Remove SN) (Project Name =code name) [Type 2]</span></p><figure class='table-figure'><table><thead><tr><th><span>  </span><strong><span>MDA 2017</span></strong><span>  </span></th><th><span>  </span><strong><span>CHID-8</span></strong><span>  </span></th></tr></thead><tbody><tr><td><span>  </span><strong><span>Manufacturer</span></strong><span>   </span></td><td><span>  </span><strong><span>Acer</span></strong><span>  </span></td></tr><tr><td><span>  </span><strong><span>Product Name</span></strong><span>  </span></td><td><span>  </span><strong><span>Aspire XXXX</span></strong><span>  </span></td></tr><tr><td><span>  </span><strong><span>Baseboard Manufacture</span></strong><span>  </span></td><td><span>  </span><strong><span>SKL</span></strong><span>  </span></td></tr><tr><td><span>  </span><strong><span>Baseboard Product</span></strong><span>  </span></td><td><span>  </span><strong><span>Project Name (Code Name)</span></strong><span>  </span></td></tr></tbody></table></figure><p><span>The content of Baseboard Manufacture will be filled in platform abbreviation listing below:</span></p><figure class='table-figure'><table><thead><tr><th><span>  </span><strong><span>Chipset</span></strong><span>  </span></th><th><span>  Abbreviation  </span></th></tr></thead><tbody><tr><td><span>  </span><strong><span>Panther Lake</span></strong><span>  </span></td><td><span>  PTL  </span></td></tr><tr><td><span>  </span><strong><span>Twin Lake</span></strong><span>  </span></td><td><span>  TWL  </span></td></tr><tr><td><span>  </span><strong><span>Lunar Lake</span></strong><span>  </span></td><td><span>  LNL  </span></td></tr><tr><td><span>  </span><strong><span>Arrow Lake</span></strong><span>  </span></td><td><span>  ARL  </span></td></tr><tr><td><span>  </span><strong><span>Meteor Lake</span></strong><span>  </span></td><td><span>  MTL  </span></td></tr><tr><td><span>  </span><strong><span>Raptor Lake/Raptor  Lake-R</span></strong><span>  </span></td><td><span>  RPL  </span></td></tr><tr><td><span>  </span><strong><span>Alder Lake</span></strong><span>  </span></td><td><span>  ADL  </span></td></tr><tr><td><span>  </span><strong><span>Alder Lake-N</span></strong><span>  </span></td><td><span>  ADN  </span></td></tr><tr><td><span>  </span><strong><span>Rocket Lake</span></strong><span>  </span></td><td><span>  RKL  </span></td></tr><tr><td><span>  </span><strong><span>Tiger Lake/Tiger  Lake-R</span></strong><span>  </span></td><td><span>  TGL  </span></td></tr><tr><td><span>  </span><strong><span>Comet  Lake</span></strong><span>  </span></td><td><span>  CML  </span></td></tr><tr><td><span>  </span><strong><span>Amber  Lake</span></strong><span>  </span></td><td><span>  AML  </span></td></tr><tr><td><span>  </span><strong><span>Ice Lake</span></strong><span>  </span></td><td><span>  IL  </span></td></tr><tr><td><span>  </span><strong><span>Whiskey  Lake</span></strong><span>  </span></td><td><span>  WL  </span></td></tr><tr><td><span>  </span><strong><span>Canon  Lake</span></strong><span>  </span></td><td><span>  CNL  </span></td></tr><tr><td><span>  </span><strong><span>Coffee  Lake</span></strong><span>  </span></td><td><span>  CFL  </span></td></tr><tr><td><span>  </span><strong><span>Kaby  Lake/Kaby Lake-R</span></strong><span>  </span></td><td><span>  KBL  </span></td></tr><tr><td><span>  </span><strong><span>Skylake</span></strong><span>  </span></td><td><span>  SKL  </span></td></tr><tr><td><span>  </span><strong><span>Broadwell</span></strong><span>  </span></td><td><span>  BDW  </span></td></tr><tr><td><span>  </span><strong><span>Haswell</span></strong><span>  </span></td><td><span>  HSW  </span></td></tr><tr><td><span>  </span><strong><span>Jasper Lake</span></strong><span>  </span></td><td><span>  JSL  </span></td></tr><tr><td><span>  </span><strong><span>Gemini Lake\Gemini  Lake-R</span></strong><span>  </span></td><td><span>  GLK  </span></td></tr><tr><td><span>  </span><strong><span>Apollo  Lake</span></strong><span>  </span></td><td><span>  APL  </span></td></tr><tr><td><span>  </span><strong><span>Braswell</span></strong><span>  </span></td><td><span>  BSW  </span></td></tr><tr><td><span>  </span><strong><span>Baytrial-M</span></strong><span>  </span></td><td><span>  BTM  </span></td></tr><tr><td><span>  </span><strong><span>Baytrial-T</span></strong><span>  </span></td><td><span>  BYT  </span></td></tr><tr><td><span>  </span><strong><span>BayTrial-T  CR</span></strong><span>  </span></td><td><span>  BYT-CR  </span></td></tr><tr><td><span>  </span><strong><span>CherryTrail</span></strong><span>  </span></td><td><span>  CHT  </span></td></tr><tr><td><span>  </span><strong><span>CherryTrail-CR</span></strong><span>  </span></td><td><span>  CHT-CR  </span></td></tr><tr><td><span>  </span><strong><span>Carrizo</span></strong><span>  </span></td><td><span>  CZ  </span></td></tr><tr><td><span>  </span><strong><span>Carrizo  lite</span></strong><span>  </span></td><td><span>  CZL  </span></td></tr><tr><td><span>  </span><strong><span>Beema</span></strong><span>  </span></td><td><span>  BE  </span></td></tr><tr><td><span>  </span><strong><span>Kabini</span></strong><span>  </span></td><td><span>  KB  </span></td></tr><tr><td><span>  </span><strong><span>Bristol  Ridge</span></strong><span>  </span></td><td><span>  BR  </span></td></tr><tr><td><span>  </span><strong><span>Stoney  Ridge/Stoney Ridge Refresh</span></strong><span>  </span></td><td><span>  SR  </span></td></tr><tr><td><span>  </span><strong><span>Raven  Ridge</span></strong><span>  </span></td><td><span>  RR  </span></td></tr><tr><td><span>  </span><strong><span>Summit  Ridge</span></strong><span>  </span></td><td><span>  SM  </span></td></tr><tr><td><span>  </span><strong><span>Pinncale  Ridge</span></strong><span>  </span></td><td><span>  PRS  </span></td></tr><tr><td><span>  </span><strong><span>Picasso</span></strong><span>  </span></td><td><span>  PK  </span></td></tr><tr><td><span>  </span><strong><span>Renoir</span></strong><span>  </span></td><td><span>  RO  </span></td></tr><tr><td><span>  </span><strong><span>Dali</span></strong><span>  </span></td><td><span>  DL  </span></td></tr><tr><td><span>  </span><strong><span>Lucienne</span></strong><span>  </span></td><td><span>  LN  </span></td></tr><tr><td><span>  </span><strong><span>Cezanne</span></strong><span>  </span></td><td><span>  CZ  </span></td></tr><tr><td><span>  </span><strong><span>Pollock</span></strong><span>  </span></td><td><span>  PL  </span></td></tr><tr><td><span>  </span><strong><span>Barcelo</span></strong><span>  </span></td><td><span>  BC  </span></td></tr><tr><td><span>  </span><strong><span>Rembrandt / Rembrandt+</span></strong><span>  </span></td><td><span>  RB  </span></td></tr><tr><td><span>  </span><strong><span>Phoenix</span></strong><span>  </span></td><td><span>  PHX  </span></td></tr><tr><td><span>  </span><strong><span>Mendocino</span></strong><span>  </span></td><td><span>  MDC  </span></td></tr><tr><td><span>  </span><strong><span>Strix</span></strong><span>  </span></td><td><span>  STX  </span></td></tr><tr><td><span>  </span><strong><span>Mendocino</span></strong><span>  </span></td><td><span>  MDN  </span></td></tr><tr><td><span>  </span><strong><span>Hawk  Point</span></strong><span>  </span></td><td><span>  HWK  </span></td></tr><tr><td><span>  </span><strong><span>Strix  Halo</span></strong><span>  </span></td><td><span>  SHO  </span></td></tr><tr><td><span>  </span><strong><span>Granite  Ridge</span></strong><span>  </span></td><td><span>  GNR  </span></td></tr><tr><td><span>  </span><strong><span>StrixPoint</span></strong><span>  </span></td><td><span>  SXP  </span></td></tr><tr><td><span>  </span><strong><span>Krakan</span></strong><span>  </span></td><td><span>  KRK  </span></td></tr></tbody></table></figure><h1 id='2---os-support'><span>2.   OS Support</span></h1><figure class='table-figure'><table><thead><tr><th><span>  Support OS  </span></th></tr></thead><tbody><tr><td><span>  Linux  </span></td></tr><tr><td><span>  Android  </span></td></tr><tr><td><span>  Windows 8  </span></td></tr><tr><td><span>  Windows 8.1  </span></td></tr><tr><td><span>  Win 10  </span></td></tr><tr><td><span>  Win 10 S  </span></td></tr><tr><td><span>  Win 11  </span></td></tr><tr><td><span>  Win 11 Pro S  </span></td></tr><tr><td><span>  Boot to UEFI Shell  </span></td></tr></tbody></table></figure><h1 id='21-windows-secure-boot'><span>2.1 Windows Secure Boot</span></h1><p><span>l  Windows secure boot requirement must be met according to the supporting OS. </span></p><p>&nbsp;</p><p><span>l  For selected project shipped with Linpus that support UEFI Secure Boot feature, Microsoft Corporation Third Party Marketplace Key and Acer Security Key must be added into BIOS.</span></p><p><span>l  GUID for the key is “92fcafcd-c861-4b8b-aff2-a3d5a3e093f8”</span></p></div></div>
+
+<script>(function(){function e(e,n,i){document.addEventListener(e,function(e){if(!e.defaultPrevented)for(var t=e.target;t&&t!=this;t=t.parentNode)if(t.matches(n)){!1===i.call(t,e)&&(e.preventDefault(),e.stopPropagation());break}},!1)}var t=document.body.parentElement,i=[],r=null,o=document.body.classList.contains("typora-export-collapse-outline");function a(){return t.scrollTop}e("click",".outline-expander",function(e){var t=this.closest(".outline-item-wrapper").classList;return t.contains("outline-item-open")?t.remove("outline-item-open"):t.add("outline-item-open"),u(),!1}),e("click",".outline-item",function(e){var t=this.querySelector(".outline-label");location.hash="#"+t.getAttribute("href"),o&&((t=this.closest(".outline-item-wrapper").classList).contains("outline-item-open")||t.add("outline-item-open"),d(),t.add("outline-item-active"))});function s(){var e=a();r=null;for(var t=0;t<i.length&&i[t][1]-e<60;t++)r=i[t]}function n(){c=setTimeout(function(){var n;i=[],n=a(),document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(e=>{var t=e.getAttribute("id");i.push([t,n+e.getBoundingClientRect().y])}),s(),u()},300)}var l,c,d=function(){document.querySelectorAll(".outline-item-active").forEach(e=>e.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(e=>e.classList.remove("outline-item-open"))},u=function(){if(r&&(d(),t=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(r[0]):r[0])+'"]')))if(o){var e=t.closest(".outline-item-open>ul>.outline-item-wrapper");if(e)e.classList.add("outline-item-active");else{for(var t,n=(t=t.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");n;)n=(t=n).parentElement.closest(".outline-item-wrapper");t.classList.add("outline-item-active")}}else t.closest(".outline-item-wrapper").classList.add("outline-item-active")};window.addEventListener("scroll",function(e){l&&clearTimeout(l),l=setTimeout(function(){s(),u()},300)});window.addEventListener("resize",function(e){c&&clearTimeout(c),n()}),n()})();</script></body>
+</html>
