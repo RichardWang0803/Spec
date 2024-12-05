@@ -4,7 +4,7 @@
 
 **Acer Notebook/Tablet** 
 
-![image-20240916115840934](D:\Study\markdown\S001\pic\image-20240916115840934.png)
+![image-20240916115840934](pic\image-20240916115840934.png)
 
 **Acer Incorporated**
 
@@ -154,7 +154,7 @@ Note.1 Boot block only refreshed when it is necessary to update by platform refe
 
 Note 2. Progress sample as below for reference.
 
-![image-20240916115718879](D:\Study\markdown\S001\pic\image-20240916115718879.png)
+![image-20240916115718879](pic\image-20240916115718879.png)
 
 ## 1.3      Firmware capsule update
 
@@ -196,7 +196,7 @@ Please refer to the chapter 4, ‘UEFI firmwareupdateuserexperience’ in Micros
 
 l  If the capsule update is handled by Windows loader, the UI component should have: Acer logo (same as POST screen) and update text by Windows loader, as the picture below shows (the display offset/percentage is only for reference). Progress Bar is required, but could be under or above the texts.
 
-​                               ![image-20240916120501127](D:\Study\markdown\S001\pic\image-20240916120501127.png) 
+​                               ![image-20240916120501127](pic\image-20240916120501127.png) 
 
  
 
@@ -204,7 +204,7 @@ If the capsule is handled by BIOS code instead of Windows loader, the UI compone
 
 l  In order to indicate users the device update is under processing, BIOS must show UpdateText-0.png picture in the ‘FlashBIOSUpdateText.7z’ until flash completed.
 
-![image-20240916120528654](D:\Study\markdown\image-20240916120528654.png)
+![image-20240916120528654](pic\image-20240916120528654.png)
 
 ### 1.3.2     Capsule update require SMBIOS support
 
@@ -373,7 +373,7 @@ To prevent hard power off which causes complete data loss, MSFT recommended supp
 
 The flowchart to describe the user experience. And Intel HID event filter driver allows the SBIOS to send Intel HID messages and button events to the operating system for various key presses. Follow latest “Intel HID Event Filter Release Notes and Bring Up Guide” to implement the feature.
 
-![image-20240918163934444](D:\Study\markdown\S001\pic\image-20240918163934444.png)
+![image-20240918163934444](pic\image-20240918163934444.png)
 
 **2.3.8**     **Modern Standby Indicator**
 
@@ -397,7 +397,7 @@ When the system enters modern standby and the value-adding software activities s
 | 0                                    | 7            | Sleep Entry Notification               |                      |
 | 0                                    | 8            | Sleep Exit Notification                |                      |
 
-![image-20240918164158827](D:\Study\markdown\S001\pic\image-20240918164158827.png)
+![image-20240918164158827](pic\image-20240918164158827.png)
 
 ## 2.4      Windows OEM Activation
 
@@ -534,8 +534,8 @@ The following is Security Menu if both of the passwords are disabled, or enter S
 
 | Item Name                                                    | Example                                                | Remark                                                       |
 | ------------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------------ |
-| Set Supervisor Password  <br /><br /><br />  Set User Password  <br /><br /><br />  Set HDD Password | [Enabled] / [Disabled]                                 | [Disabled] means password is not set. After set  password, item value will be change to [Enabled].  If Supervisor Password it not set, Set User Password  should be a grayed out item.  After press [Disabled], pop up a window to ask user to  enter new password. Refer to following picture. <br />![image-20240920102725359](D:\Study\markdown\S001\pic\image-20240920102725359.png)<br />If there is an old password, pop up a window to ask user to enter old password first. If  the password entered does not match old password, pop-up warning  message “Invalid password”. If  the password entered match old password, the password will be clear  and change the item to disabled. For the format of the password, please refer “Valid  Password Characters” in Security Feature – Password section. |
-| Change Supervisor Password  <br /><br /><br />Change User Password  <br /><br /><br />  Change HDD Password | [N/A]/ [Change]                                        | [N/A] means password is not set. After set password,  item value will be change to [Change].  After press [Change], pop up a window to ask user to  enter current password. Refer to following picture.<br />![image-20240920102825124](D:\Study\markdown\S001\pic\image-20240920102825124.png)<br />User should enter  current password first and then type new password in field “Enter New  Password”, and re-enter password in field “Confirm New Password” for  verification.  If the verification is  OK, password setting is complete after user pressed enter.  If the current password entered does  not match the actual current password, pop-up warning message “Invalid  password”.  If the new password and confirm new password do not  match, pop-up warning message “Password do not match”  For the format of the password, please refer “Valid  Password Characters” in Security Feature – Password section.If system has  more than 1 HDD, HDD password items that listed on the Security Menu should  be as below:    Set HDD0  Password    Change HDD0  Password    Set HDD1  Password    Change HDD1  Password |
+| Set Supervisor Password  <br /><br /><br />  Set User Password  <br /><br /><br />  Set HDD Password | [Enabled] / [Disabled]                                 | [Disabled] means password is not set. After set  password, item value will be change to [Enabled].  If Supervisor Password it not set, Set User Password  should be a grayed out item.  After press [Disabled], pop up a window to ask user to  enter new password. Refer to following picture. <br />![image-20240920102725359](pic\image-20240920102725359.png)<br />If there is an old password, pop up a window to ask user to enter old password first. If  the password entered does not match old password, pop-up warning  message “Invalid password”. If  the password entered match old password, the password will be clear  and change the item to disabled. For the format of the password, please refer “Valid  Password Characters” in Security Feature – Password section. |
+| Change Supervisor Password  <br /><br /><br />Change User Password  <br /><br /><br />  Change HDD Password | [N/A]/ [Change]                                        | [N/A] means password is not set. After set password,  item value will be change to [Change].  After press [Change], pop up a window to ask user to  enter current password. Refer to following picture.<br />![image-20240920102825124](pic\image-20240920102825124.png)<br />User should enter  current password first and then type new password in field “Enter New  Password”, and re-enter password in field “Confirm New Password” for  verification.  If the verification is  OK, password setting is complete after user pressed enter.  If the current password entered does  not match the actual current password, pop-up warning message “Invalid  password”.  If the new password and confirm new password do not  match, pop-up warning message “Password do not match”  For the format of the password, please refer “Valid  Password Characters” in Security Feature – Password section.If system has  more than 1 HDD, HDD password items that listed on the Security Menu should  be as below:    Set HDD0  Password    Change HDD0  Password    Set HDD1  Password    Change HDD1  Password |
 | Password on Boot                                             | [Enabled] / [Disabled]                                 | Defines whether a password is required or not while the  events defined in this group happened.  Password on Boot option requires the Supervisor  Password. During login, this should  be grayed out if the User Password was used to enter BIOS Setup Utility.  Allows user to specify whether or not a password is  required to boot.  The default value is [Disabled] |
 | Current TPM (TCM) State (For TPM 1.2)                        |                                                        | This field indicates current TPM (TCM) State.<br/>Current TPM or TCM State description is according current TPM or TCM is connected.<br/>Current TPM (TCM) State is displayed on BIOS Setup Utility no matter Supervisor /User Password is set or not and is grayed out item that can’t be modified manually. |
 | Change TPM (TCM) State  (For TPM 1.2)                        | [No Change] / [Enable & Active] / [Deactive & Disable] | Change TPM or TCM State description is according current TPM or TCM is connected.<br/>Change TPM (TCM) State is displayed on BIOS Setup Utility no matter Supervisor / User Password is set or not. If Supervisor <br/>Password is not set, it should be a grayed out item.<br/>Default TPM (TCM) state is set to [Enabled] and requires Supervisor Password to change the state.<br/>Change TPM (TCM) state will support the items list in left. |
@@ -560,13 +560,13 @@ If Supervisor Password is not set or User Password was used to enter BIOS Setup 
 
 If Boot Mode is [UEFI] and Secure Boot in Boot Menu is [Disabled], all the items should be grayed out.
 
-![image-20240920104522437](D:\Study\markdown\S001\pic\image-20240920104522437.png)
+![image-20240920104522437](pic\image-20240920104522437.png)
 
-![image-20240920104544932](D:\Study\markdown\S001\pic\image-20240920104544932.png)
+![image-20240920104544932](pic\image-20240920104544932.png)
 
-![image-20240920104607776](C:\Users\Richard\AppData\Roaming\Typora\typora-user-images\image-20240920104607776.png)
+![image-20240920104607776](pic\image-20240920104607776.png)
 
-![image-20240920104622226](C:\Users\Richard\AppData\Roaming\Typora\typora-user-images\image-20240920104622226.png)
+![image-20240920104622226](pic\image-20240920104622226.png)
 
 | Item Name                                    | Example               | Remark                                                       |
 | -------------------------------------------- | --------------------- | ------------------------------------------------------------ |
@@ -605,16 +605,16 @@ Following requirements must be met under [UEFI] and [Legacy] (Note1) Boot Mode:
 
 | Item                     | Remark                                                       |
 | ------------------------ | ------------------------------------------------------------ |
-| Exit  Saving Changes     | ·        Allow users to save changes and  reboot the system.  ·        A confirmation message will pop up as  below when user executes this item. System will save changes and then  continue to reboot if “Yes” is selected or will stay in Setup Utility if No  is selected.<br />![image-20240920104912741](D:\Study\markdown\S001\pic\image-20240920104912741.png) |
-| Exit  Discarding Changes | ·        Allow users to discard changes before  exiting Setup Utility.  ·        A confirmation message will pop up as  below when user executes this item. System will discard changes then continue  to reboot if “Yes” is selected or will stay in Setup Utility if No is  selected.<br />![image-20240920104927130](D:\Study\markdown\S001\pic\image-20240920104927130.png) |
+| Exit  Saving Changes     | ·        Allow users to save changes and  reboot the system.  ·        A confirmation message will pop up as  below when user executes this item. System will save changes and then  continue to reboot if “Yes” is selected or will stay in Setup Utility if No  is selected.<br />![image-20240920104912741](pic\image-20240920104912741.png) |
+| Exit  Discarding Changes | ·        Allow users to discard changes before  exiting Setup Utility.  ·        A confirmation message will pop up as  below when user executes this item. System will discard changes then continue  to reboot if “Yes” is selected or will stay in Setup Utility if No is  selected.<br />![image-20240920104927130](pic\image-20240920104927130.png) |
 | Save  & Shutdown         | ·        Allow users to save changes and  shutdown the system.  ·        A confirmation message will pop up as  below when user executes this item. System will save changes and then  continue to shutdown if “Yes” is selected or will stay in Setup Utility if “No”  is selected. |
-| Load  Setup Defaults     | ·        Allow user to load factory default  configurations in Setup Utility.  ·        A confirmation message will pop up as  below when user executes this item. System will stay in Setup Utility after  either selection.<br />![image-20240920104942641](D:\Study\markdown\S001\pic\image-20240920104942641.png) |
+| Load  Setup Defaults     | ·        Allow user to load factory default  configurations in Setup Utility.  ·        A confirmation message will pop up as  below when user executes this item. System will stay in Setup Utility after  either selection.<br />![image-20240920104942641](pic\image-20240920104942641.png) |
 
 ### 3.1.2     EZ Mode
 
 Acer EZ mode Setup Menu’s resolution is set to panel default. For the General view should look like as below picture. The exactly options displayed depends on system design and latest BIOS SPEC definition. In this page, support user press F1 to “Advanced Settings” , F9 to “Setup Defaults” and F10 to “Exit”. The help field should have a QR code to let user visit Acer website.
 
-![image-20240920105033123](D:\Study\markdown\S001\pic\image-20240920105033123.png)
+![image-20240920105033123](pic\image-20240920105033123.png)
 
 #### **3.1.2.1** **Simple System information**
 
@@ -654,7 +654,7 @@ On Board Memory should summary to one page. And the title should be “On Board 
 
 ## 3.2            Security
 
-![image-20240920110014433](D:\Study\markdown\S001\image-20240920110014433.png)
+![image-20240920110014433](pic\image-20240920110014433.png)
 
 OPAL Storage password leverage HDD password flow, but no fail three times unlock storage option.
 
@@ -1791,13 +1791,13 @@ For battery life enhancement, if Intel platform which supports BT audio offload,
 
 Intel Advanced Menu -> CNVi Configuration -> Bluetooth® Audio Offload <Enabled>
 
-![image-20240925171952981](D:\code\NB_Spec\Spec\pic\image-20240925171952981.png)
+![image-20240925171952981](pic\image-20240925171952981.png)
 
 ## 4.13 Intel Boot Guard
 
 For the project which requires to support Intel Boot Guard, the Boot Guard Policy Profiles should be set to Profile 5 (FVME)
 
-![image-20240925172037098](D:\code\NB_Spec\Spec\pic\image-20240925172037098.png) 
+![image-20240925172037098](pic\image-20240925172037098.png) 
 
 ​                           
 
@@ -1891,7 +1891,7 @@ Acer System Diagnose is sunset. System Diagnose function will use 3rd party solu
 | World-Facing LED                      | [Disabled] / [S3/S4/S5 Only] / [Enabled]                     | ·        This option appears in education product which support World-Facing LED. Otherwise remove  this option.  ·        The default value is [Enabled] |
 | System Health Indicator               | [Enter]                                                      | ·        Enter System  Health Indicator Page.                |
 
-![image-20240925180204640](D:\code\NB_Spec\Spec\pic\image-20240925180204640.png)
+![image-20240925180204640](pic\image-20240925180204640.png)
 
 The following advanced settings are for commercial product only and only displayed when device is existed. It should be protected by supervisor password.
 
@@ -1959,12 +1959,12 @@ The following advanced settings are for commercial product only and only display
 
 | Item                                 | Remark                                                       |
 | ------------------------------------ | ------------------------------------------------------------ |
-| Exit  Saving Changes                 | ·        Allow users to save changes and  reboot the system.  ·        A confirmation message will pop up as  below when user executes this item. System will save changes and then  continue to reboot if “Yes” is selected or will stay in Setup Utility if No  is selected.<br />![image-20240925181026521](D:\code\NB_Spec\Spec\pic\image-20240925181026521.png) |
-| Exit  Discarding Changes             | ·        Allow users to discard changes before  exiting Setup Utility.  ·        A confirmation message will pop up as  below when user executes this item. System will discard changes then continue  to reboot if “Yes” is selected or will stay in Setup Utility if No is  selected.<br />![image-20240925181049249](D:\code\NB_Spec\Spec\pic\image-20240925181049249.png) |
+| Exit  Saving Changes                 | ·        Allow users to save changes and  reboot the system.  ·        A confirmation message will pop up as  below when user executes this item. System will save changes and then  continue to reboot if “Yes” is selected or will stay in Setup Utility if No  is selected.<br />![image-20240925181026521](pic\image-20240925181026521.png) |
+| Exit  Discarding Changes             | ·        Allow users to discard changes before  exiting Setup Utility.  ·        A confirmation message will pop up as  below when user executes this item. System will discard changes then continue  to reboot if “Yes” is selected or will stay in Setup Utility if No is  selected.<br />![image-20240925181049249](pic\image-20240925181049249.png) |
 | Save  & Shutdown                     | ·        Allow users to save changes and  shutdown the system.  ·        A confirmation message will pop up as  below when user executes this item. System will save changes and then  continue to shutdown if “Yes” is selected or will stay in Setup Utility if “No”  is selected. |
-| Load Factory Setup Defaults          | ·        Allow  user to load factory default configurations in Setup Utility.  ·        A  confirmation message will pop up as below when user executes this item.  System will stay in Setup Utility after either selection.<br />![image-20240925181116736](D:\code\NB_Spec\Spec\pic\image-20240925181116736.png) |
-| Save Settings to User Setup Defaults | ·        Allow  users to save settings to user setup default.<br />![image-20240925181141719](D:\code\NB_Spec\Spec\pic\image-20240925181141719.png) |
-| Load User Setup Defaults             | ·        Allow  user to load user default configurations in Setup Utility.  ·        A  confirmation message will pop up as below when user executes this item.  System will stay in Setup Utility after either selection.     <br />![image-20240925181208488](D:\code\NB_Spec\Spec\pic\image-20240925181208488.png) |
+| Load Factory Setup Defaults          | ·        Allow  user to load factory default configurations in Setup Utility.  ·        A  confirmation message will pop up as below when user executes this item.  System will stay in Setup Utility after either selection.<br />![image-20240925181116736](pic\image-20240925181116736.png) |
+| Save Settings to User Setup Defaults | ·        Allow  users to save settings to user setup default.<br />![image-20240925181141719](pic\image-20240925181141719.png) |
+| Load User Setup Defaults             | ·        Allow  user to load user default configurations in Setup Utility.  ·        A  confirmation message will pop up as below when user executes this item.  System will stay in Setup Utility after either selection.     <br />![image-20240925181208488](pic\image-20240925181208488.png) |
 
 ## 5.5      vPro
 
@@ -1992,7 +1992,7 @@ If the system configure as MSFT Security Level 3, set the TXT option default ena
 
 BIOS has to make sure the TXT option default setting should be preserved as below table after doing firmware update at end user side:
 
-![image-20240926111004685](D:\code\NB_Spec\Spec\pic\image-20240926111004685.png)                               
+![image-20240926111004685](pic\image-20240926111004685.png)                               
 
 ### 5.5.4     Secured-Core PC support
 
@@ -2000,7 +2000,7 @@ If the system requires to support Secured-Core PC, the Secure Boot must be enabl
 
 Below flow chart describes the behavior when the Secured-core PC identifier be set to non-zero:
 
-![image-20240926111029537](D:\code\NB_Spec\Spec\pic\image-20240926111029537.png)
+![image-20240926111029537](pic\image-20240926111029537.png)
 
 ### 5.5.5    Secured-Core PC device identifier
 
